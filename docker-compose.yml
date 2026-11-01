@@ -1,0 +1,29 @@
+# PhishGuard AI - docker-compose
+#
+# Запуск:
+#   docker compose up --build
+# Затем открой http://localhost:8000/ - и frontend, и backend отдаются
+# с одного и того же адреса (см. main.py, StaticFiles).
+#
+# Первый запуск: URL ML-модель ещё не обучена. Либо смонтируй уже
+# обученный models/url_model.pkl с хоста (он уже подключён как volume
+# ниже), либо обучи внутри контейнера:
+#   docker compose exec backend python train_url_model.py
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # Модель, датасет истории и отчёты об ошибках сохраняются на хосте,
+      # а не только внутри контейнера - иначе `docker compose down` стирал
+      # бы обученную модель и всю историю сканирований.
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./reports:/app/reports
+    env_file:
+      - backend/.env
+    restart: unless-stopped

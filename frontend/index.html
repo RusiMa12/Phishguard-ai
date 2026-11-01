@@ -1,0 +1,3404 @@
+<!DOCTYPE html>
+
+<html lang="uz">
+
+
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>PhishGuard AI — Ko'p Pog'onali Kiberxavfsizlik va Tahdidlarni Tahlil Qilish Platformasi</title>
+
+  <!-- Favicon Links (Modern SVG, PNG, and Fallback ICO) -->
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+
+  <link rel="alternate icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <meta name="theme-color" content="#020b18" />
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css?v=11.0" />
+
+</head>
+
+
+
+<body>
+
+
+
+  <div class="app-shell">
+
+
+
+    <!-- ============ SIDEBAR ============ -->
+
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-brand">
+
+        <span class="brand-mark">&#9670;</span>
+
+        <div class="brand-text">
+
+          <div class="brand-name">PHISHGUARD<span class="brand-ai">AI</span></div>
+
+          <div class="brand-sub" data-i18n="brand_sub">KO'P POG'ONALI KIBERXAVFSIZLIK TAHLILI</div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ============ SIDEBAR LANGUAGE SELECTOR ============ -->
+
+      <div class="sidebar-lang-wrap">
+
+        <div class="sidebar-lang-label">
+
+          <span class="sidebar-lang-icon">&#127760;</span>
+
+          <span data-i18n="language_label">TILNI TANLASH:</span>
+
+        </div>
+
+        <div class="sidebar-lang-grid">
+
+          <button class="lang-btn active" data-lang="uz" title="O'zbekcha">
+
+            <span class="flag">🇺🇿</span> <span class="lang-code">UZ</span>
+
+          </button>
+
+          <button class="lang-btn" data-lang="en" title="English">
+
+            <span class="flag">🇬🇧</span> <span class="lang-code">EN</span>
+
+          </button>
+
+          <button class="lang-btn" data-lang="ru" title="Русский">
+
+            <span class="flag">🇷🇺</span> <span class="lang-code">RU</span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <nav class="sidebar-nav">
+
+        <button class="nav-item active" data-view="dashboard">
+
+          <span class="nav-icon">&#9635;</span> <span data-i18n="nav_dashboard">Boshqaruv paneli</span>
+
+        </button>
+
+        <button class="nav-item" data-view="url-scanner">
+
+          <span class="nav-icon">&#128279;</span> <span data-i18n="nav_url_scanner">URL Skaner</span>
+
+        </button>
+
+        <button class="nav-item" data-view="exe-scanner">
+
+          <span class="nav-icon">&#128451;</span> <span data-i18n="nav_exe_scanner">EXE Skaner</span>
+
+        </button>
+
+        <button class="nav-item" data-view="apk-scanner">
+
+          <span class="nav-icon">&#128241;</span> <span data-i18n="nav_apk_scanner">APK Skaner</span>
+
+        </button>
+
+        <button class="nav-item" data-view="history">
+
+          <span class="nav-icon">&#8801;</span> <span data-i18n="nav_history">Skanerlash tarixi</span>
+
+        </button>
+
+        <button class="nav-item" data-view="threat-map">
+
+          <span class="nav-icon">🗺️</span> <span data-i18n="nav_threat_map">Kiber-Tahdidlar Xaritasi</span>
+
+        </button>
+
+        <button class="nav-item" data-view="brand-radar">
+
+          <span class="nav-icon">🏢</span> <span data-i18n="nav_brand_radar">Brend Radari</span>
+
+        </button>
+
+        <button class="nav-item" data-view="cyber-lab">
+
+          <span class="nav-icon">🎮</span> <span data-i18n="nav_cyber_lab">Kiber-Poligon</span>
+
+        </button>
+
+        <button class="nav-item" data-view="threat-intel">
+
+          <span class="nav-icon">&#9678;</span> <span data-i18n="nav_threat_intel">Tahdidlar bazasi</span>
+
+        </button>
+
+        <button class="nav-item" data-view="model-metrics">
+
+          <span class="nav-icon">📊</span> <span data-i18n="nav_model_metrics">Model Metriklari</span>
+
+        </button>
+
+        <button class="nav-item" data-view="about">
+
+          <span class="nav-icon">&#9432;</span> <span data-i18n="nav_about">Loyiha haqida</span>
+
+        </button>
+
+      </nav>
+
+
+
+      <div class="sidebar-status">
+
+        <div class="status-row"><span class="status-dot dot-online"></span> <span data-i18n="status_ai">AI TIZIMI:
+
+            FAOL</span></div>
+
+        <div class="status-row"><span class="status-dot dot-online"></span> <span data-i18n="status_vt">TAHDIDLAR
+
+            RAZVEDKASI: FAOL</span></div>
+
+      </div>
+
+    </aside>
+
+
+
+    <div class="app-scrim" id="app-scrim"></div>
+
+
+
+    <!-- ============ MAIN AREA ============ -->
+
+    <div class="main-area">
+
+
+
+      <header class="topbar">
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+
+        <div class="topbar-title" id="view-title" data-i18n="dashboard">Boshqaruv paneli</div>
+
+        <div class="topbar-actions">
+
+          <button class="topbar-audio-btn active" id="audio-toggle-btn" title="SOC Taktik Ovozli Ogohlantirish">
+
+            <span class="audio-wave"></span>
+
+            <span id="audio-icon">🔊</span>
+
+            <span id="audio-label" data-i18n="audio_on">SOC OVOZ: FAOL</span>
+
+          </button>
+
+          <div class="lang-selector-wrap">
+
+            <span class="lang-globe-icon" aria-hidden="true">&#127760;</span>
+
+            <div class="lang-menu" id="lang-menu" role="group" aria-label="Language selector">
+
+              <button class="lang-btn active" data-lang="uz" title="O'zbekcha">
+
+                <span class="flag">🇺🇿</span> <span class="lang-name">O'zbek</span>
+
+              </button>
+
+              <button class="lang-btn" data-lang="en" title="English">
+
+                <span class="flag">🇬🇧</span> <span class="lang-name">English</span>
+
+              </button>
+
+              <button class="lang-btn" data-lang="ru" title="Русский">
+
+                <span class="flag">🇷🇺</span> <span class="lang-name">Русский</span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+
+      <main class="content">
+
+
+
+        <!-- ============ DASHBOARD ============ -->
+
+        <section class="view" id="view-dashboard" data-view-panel>
+
+          <p class="view-eyebrow" data-i18n="overview">UMUMIY KO'RINISh</p>
+
+          <h1 class="view-heading" data-i18n="choose_engine">Tahlil mexanizmini tanlang</h1>
+
+
+
+          <div class="scan-cards">
+
+            <button class="scan-card" data-goto="url-scanner">
+
+              <div class="scan-card-icon icon-url">&#128279;</div>
+
+              <h2 data-i18n="url_analyzer">URL TAHLILCHI</h2>
+
+              <p data-i18n="url_analyzer_desc">Sun'iy intellekt va leksik tahlil yordamida shubhali havolalarni
+
+                tekshiring va fishing xavfini aniqlang.</p>
+
+              <span class="scan-card-cta" data-i18n="scan_url_cta">URL TEKSHIRISH &#8594;</span>
+
+            </button>
+
+            <button class="scan-card" data-goto="exe-scanner">
+
+              <div class="scan-card-icon icon-exe">&#128451;</div>
+
+              <h2 data-i18n="exe_analyzer">EXE TAHLILCHI</h2>
+
+              <p data-i18n="exe_analyzer_desc">Windows PE fayllarini xavfsiz statik tahlil, lokal AI va VirusTotal
+
+                orqali tekshiring.</p>
+
+              <span class="scan-card-cta" data-i18n="scan_exe_cta">EXE TEKSHIRISH &#8594;</span>
+
+            </button>
+
+            <button class="scan-card" data-goto="apk-scanner">
+
+              <div class="scan-card-icon icon-apk">&#128241;</div>
+
+              <h2 data-i18n="apk_analyzer">APK TAHLILCHI</h2>
+
+              <p data-i18n="apk_analyzer_desc">Android ilovalarini (APK) xavfli ruxsatnomalar, imzo va komponentlar
+
+                bo'yicha tahlil qiling.</p>
+
+              <span class="scan-card-cta" data-i18n="scan_apk_cta">APK TEKSHIRISH &#8594;</span>
+
+            </button>
+
+            <button class="scan-card" data-goto="brand-radar">
+
+              <div class="scan-card-icon icon-brand">🏢</div>
+
+              <h2 data-i18n="brand_radar_title">BREND RADARI</h2>
+
+              <p data-i18n="brand_radar_desc">Payme, Click, Uzum va banklar nomidan ochilgan klon domenlar va omogliflarni fosh qiling.</p>
+
+              <span class="scan-card-cta" data-i18n="scan_brand_cta">BRENDNI TEKSHIRISH &#8594;</span>
+
+            </button>
+
+            <button class="scan-card" data-goto="cyber-lab">
+
+              <div class="scan-card-icon icon-lab">🎮</div>
+
+              <h2 data-i18n="cyber_lab_title">KIBER-POLIGON</h2>
+
+              <p data-i18n="cyber_lab_desc">Interaktiv fishing simulyatorida real kiber-tahdidlarni aniqlash bo'yicha treningdan o'ting.</p>
+
+              <span class="scan-card-cta" data-i18n="cyber_lab_cta">TRENINGNI BOSHLASH &#8594;</span>
+
+            </button>
+
+          </div>
+
+
+
+          <!-- CYBER RADAR LIVE THREAT MAP BANNER -->
+
+          <div class="threat-radar-card" data-goto="threat-map">
+
+            <div class="radar-ping-icon">
+
+              <span class="radar-sweep"></span>
+
+              <span class="radar-center-dot"></span>
+
+            </div>
+
+            <div class="radar-card-body">
+
+              <div class="radar-card-badge">
+
+                <span class="pulse-beacon beacon-red"></span>
+
+                <span data-i18n="radar_active">JONLI SOC KIBER-TAHDIDLAR XARITASI FAOL</span>
+
+              </div>
+
+              <h3 data-i18n="radar_card_title">Global va Mintaqaviy Kiber-Hujumlar Xaritasi</h3>
+
+              <p data-i18n="radar_card_desc">O'zbekiston kiber-makoniga yo'naltirilgan fishing havolalari, troyanlar va
+
+                zararli APK serverlarining real vaqtdagi jonli traektoriyalari.</p>
+
+            </div>
+
+            <button class="btn btn-radar" data-i18n="view_map_btn">XARITANI KO'RISH &#8594;</button>
+
+          </div>
+
+
+
+          <div class="stats-grid">
+
+            <div class="stat-card">
+
+              <div class="stat-value" id="stat-total">&mdash;</div>
+
+              <div class="stat-label" data-i18n="total_scans">JAMI TEKSHIRUVLAR</div>
+
+            </div>
+
+            <div class="stat-card">
+
+              <div class="stat-value" id="stat-url">&mdash;</div>
+
+              <div class="stat-label" data-i18n="url_scans">URL TEKSHIRUVLARI</div>
+
+            </div>
+
+            <div class="stat-card">
+
+              <div class="stat-value" id="stat-exe">&mdash;</div>
+
+              <div class="stat-label" data-i18n="exe_scans">EXE TEKSHIRUVLARI</div>
+
+            </div>
+
+            <div class="stat-card">
+
+              <div class="stat-value" id="stat-apk">&mdash;</div>
+
+              <div class="stat-label" data-i18n="apk_scans">APK TEKSHIRUVLARI</div>
+
+            </div>
+
+            <div class="stat-card">
+
+              <div class="stat-value" id="stat-threats">&mdash;</div>
+
+              <div class="stat-label" data-i18n="threats_detected">ANIQLANGAN XAVFLAR</div>
+
+            </div>
+
+            <div class="stat-card">
+
+              <div class="stat-value" id="stat-avg">&mdash;</div>
+
+              <div class="stat-label" data-i18n="average_risk">O'RTACHA XAVF</div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="chart-panel">
+
+            <h3 data-i18n="risk_distribution">XAVF DARAJALARI TAQSIMOTI</h3>
+
+            <div class="stacked-bar" id="chart-risk-levels"></div>
+
+            <div class="chart-legend" id="legend-risk-levels"></div>
+
+          </div>
+
+
+
+          <div class="chart-panel">
+
+            <h3 data-i18n="scan_types">SKAN TURLARI NISBATI</h3>
+
+            <div class="stacked-bar" id="chart-scan-types"></div>
+
+            <div class="chart-legend" id="legend-scan-types"></div>
+
+          </div>
+
+
+
+          <div class="chart-panel" id="recent-threats-panel" hidden>
+
+            <h3 data-i18n="recent_threats">SO'NGGI YUQORI XAVFLI SKANLAR</h3>
+
+            <ul class="findings-list" id="recent-threats-list"></ul>
+
+          </div>
+
+
+
+          <p class="view-note" id="dashboard-empty-note" data-i18n="no_scans_yet">Hozircha tekshiruvlar yo'q — natijalar
+
+            bu yerda aks etadi.</p>
+
+        </section>
+
+
+
+        <!-- ============ URL SCANNER ============ -->
+
+        <section class="view" id="view-url-scanner" data-view-panel hidden>
+
+          <p class="view-eyebrow" data-i18n="url_threat_analysis">URL XAVF TAHLILI</p>
+
+          <h1 class="view-heading" data-i18n="check_link_safe">Havola xavfsizligini tekshiring</h1>
+
+          <p class="view-subhead" data-i18n="url_subhead">Havolani quyidagi maydonga kiriting. Tizim uni brauzerda
+
+            ochmaydi — faqat xavfsiz matn ko'rinishida tahlil qilinadi.</p>
+
+
+
+          <!-- MODE SWITCHER: DIRECT URL vs QUISHING -->
+
+          <div class="url-input-mode-tabs">
+
+            <button type="button" class="url-mode-tab active" id="tab-mode-url">
+
+              <span class="tab-icon">🔗</span> <span data-i18n="mode_url_text">Havola Matni</span>
+
+            </button>
+
+            <button type="button" class="url-mode-tab" id="tab-mode-qr">
+
+              <span class="tab-icon">📷</span> <span data-i18n="mode_quishing_tab">QR-Kod (Quishing)</span>
+
+            </button>
+
+          </div>
+
+
+
+          <form id="analyze-form" class="scan-bar" autocomplete="off">
+
+            <span class="scan-bar-icon">&#8250;_</span>
+
+            <input type="text" id="url-input" placeholder="https://example.com" data-i18n-placeholder="url_placeholder"
+
+              required />
+
+            <button type="submit" id="analyze-btn">
+
+              <span class="btn-label" data-i18n="analyze_url_btn">URL TAHLIL QILISH</span>
+
+            </button>
+
+          </form>
+
+
+
+          <!-- QUISHING (QR CODE) SCANNER PANEL -->
+
+          <div class="quishing-panel" id="quishing-panel" hidden>
+
+            <div class="quishing-dropzone" id="quishing-dropzone">
+
+              <div class="quishing-icon">📷</div>
+
+              <h3 data-i18n="quishing_title">QR-Kod Rasmini Tashlang yoki Faylni Tanlang</h3>
+
+              <p data-i18n="quishing_desc">Telegram, to'lov xabarnomasi yoki veb-saytdagi shubhali QR-kod rasmini (skrinshot) yuklang yoki kameradan o'qing</p>
+
+              <div class="quishing-btn-row">
+
+                <label class="btn-quishing-file">
+
+                  <span>📁 Rasm Yuklash</span>
+
+                  <input type="file" id="quishing-file-input" accept="image/*" />
+
+                </label>
+
+                <button type="button" class="btn-quishing-cam" id="quishing-cam-btn">
+
+                  <span>📹 Kameradan Skan Qilish</span>
+
+                </button>
+
+              </div>
+
+              <p class="quishing-paste-hint" data-i18n="quishing_paste_hint">Yoki skrinshotni bu yerga to'g'ridan-to'g'ri tashlang (Ctrl + V)</p>
+
+            </div>
+
+            
+
+            <div class="quishing-camera-box" id="quishing-camera-box" hidden>
+
+              <video id="quishing-video" playsinline></video>
+
+              <div class="quishing-laser-line"></div>
+
+              <button type="button" class="ghost-btn btn-sm" id="quishing-cam-close">✕ Kamerani to'xtatish</button>
+
+            </div>
+
+
+
+            <div class="quishing-decoded-box" id="quishing-decoded-box" hidden>
+
+              <div class="quishing-decoded-badge">✅ QR-KOD MUVAFFAQIYATLI O'QILDI</div>
+
+              <div class="quishing-decoded-url" id="quishing-decoded-url"></div>
+
+              <button type="button" class="primary-btn btn-sm" id="quishing-run-scan">
+
+                <span>⚡ PhishGuard AI Bilan Skanerlash</span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+          <p class="scan-hint" id="scan-status"></p>
+
+
+
+          <div class="result" id="result-section" hidden>
+
+            <div class="result-grid">
+
+              <div class="gauge-panel">
+
+                <div class="gauge-frame">
+
+                  <svg id="gauge-svg" viewBox="0 0 300 300"></svg>
+
+                  <div class="gauge-center">
+
+                    <div class="gauge-score-row">
+
+                      <span class="gauge-score" id="gauge-score">0</span>
+
+                      <span class="gauge-percent">%</span>
+
+                    </div>
+
+                    <div class="gauge-level" id="gauge-level">&mdash;</div>
+
+                    <div class="gauge-caption" data-i18n="risk_score">XAVF BALI</div>
+
+                  </div>
+
+                </div>
+
+                <div class="gauge-url" id="gauge-url"></div>
+
+              </div>
+
+
+
+              <div class="findings-panel">
+
+                <div class="findings-col">
+
+                  <h3><span class="dot dot-warn"></span> <span data-i18n="detected_indicators">ANIQLANGAN XAVF
+
+                      INDIKATORLARI</span></h3>
+
+                  <ul id="reasons-list" class="findings-list"></ul>
+
+                </div>
+
+                <div class="findings-col">
+
+                  <h3><span class="dot dot-safe"></span> <span data-i18n="positive_signals">IJOBIY XAVFSIZLIK
+
+                      BELGILARI</span></h3>
+
+                  <ul id="safe-list" class="findings-list"></ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="xai-panel" id="url-xai-panel" hidden>
+
+              <div class="xai-header">
+
+                <span class="xai-badge">🧠 EXPLAINABLE AI (XAI)</span>
+
+                <h3 data-i18n="xai_decision_factors">Qaror Qabul Qilish Omillari (Feature Attribution)</h3>
+
+              </div>
+
+              <p class="xai-desc" data-i18n="xai_desc">Sun'iy intellekt modeli va evristik tahlil xulosasiga eng ko'p
+
+                ta'sir qilgan parametrlar taqsimoti:</p>
+
+              <div class="xai-bars-container" id="url-xai-bars"></div>
+
+            </div>
+
+
+
+            <div class="explanation-panel">
+
+              <h3 data-i18n="ai_explanation">AI XULOSASI VA TUSHUNTIRISH</h3>
+
+              <p id="explanation-text"></p>
+
+              <p class="disclaimer" data-i18n="disclaimer_note">Eslatma: ushbu tizim ehtimollikka asoslangan xavf
+
+                bahosini beradi. 100% kafolat bermaydi.</p>
+
+            </div>
+
+
+
+            <div class="explanation-panel">
+
+              <h3>VIRUSTOTAL</h3>
+
+              <p id="url-vt-status">&mdash;</p>
+
+            </div>
+
+
+
+            <div class="report-actions">
+
+              <button id="url-export-pdf-btn" class="secondary-btn" type="button">📄 <span data-i18n="export_pdf">PDF
+
+                  HISOBOT YUKLASH</span></button>
+
+              <button id="url-yara-btn" class="ghost-btn" type="button">🎯 <span data-i18n="yara_rule_btn">YARA QOIDASI</span></button>
+
+              <button id="url-export-json-btn" class="secondary-btn" type="button">💾 <span data-i18n="export_json">JSON
+
+                  YUKLASH</span></button>
+
+              <button id="reset-btn" class="ghost-btn" type="button"><span data-i18n="start_new_scan">YANGI SKAN
+
+                  BOSHLASH</span></button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ EXE SCANNER ============ -->
+
+        <section class="view" id="view-exe-scanner" data-view-panel hidden>
+
+          <p class="view-eyebrow" data-i18n="exe_threat_analysis">IJRO FAYLLARI XAVF TAHLILI</p>
+
+          <h1 class="view-heading" data-i18n="inspect_exe">Windows ijro faylini tekshiring</h1>
+
+          <p class="view-subhead" data-i18n="exe_subhead">Fayl hech qachon ishga tushirilmaydi. Faqat statik
+
+            xususiyatlari (nomi, hajmi, kriptografik xeshi) o'qiladi.</p>
+
+
+
+          <div class="dropzone" id="exe-dropzone">
+
+            <input type="file" id="exe-file-input" accept=".exe" hidden />
+
+            <div class="dropzone-icon">&#128451;</div>
+
+            <p class="dropzone-title" data-i18n="drop_exe">.exe faylni shu yerga tashlang yoki tanlash uchun bosing</p>
+
+            <p class="dropzone-hint" data-i18n="exe_drop_hint">Maksimal hajm: 50 MB &middot; Fayl lokal tahlil qilinadi,
+
+              hech qachon ishga tushirilmaydi</p>
+
+          </div>
+
+
+
+          <div class="exe-info-panel" id="exe-info-panel" hidden>
+
+            <div class="exe-info-row"><span class="exe-info-label" data-i18n="file_name">FAYL NOMI</span><span
+
+                class="exe-info-value" id="exe-name">&mdash;</span></div>
+
+            <div class="exe-info-row"><span class="exe-info-label" data-i18n="file_size">FAYL HAJMI</span><span
+
+                class="exe-info-value" id="exe-size">&mdash;</span></div>
+
+            <div class="exe-info-row"><span class="exe-info-label" data-i18n="file_type">FAYL TURI</span><span
+
+                class="exe-info-value" id="exe-type">&mdash;</span></div>
+
+            <div class="exe-info-row"><span class="exe-info-label">SHA-256</span><span class="exe-info-value mono-hash"
+
+                id="exe-sha256">&mdash;</span></div>
+
+
+
+            <button id="exe-scan-btn" class="primary-btn" type="button"><span data-i18n="scan_exe_btn">EXE TAHLIL
+
+                QILISH</span></button>
+
+            <p class="scan-hint" id="exe-scan-status"></p>
+
+          </div>
+
+
+
+          <div class="exe-result-panel" id="exe-result-panel" hidden>
+
+            <div class="exe-result-summary">
+
+              <div class="exe-score-block">
+
+                <div class="exe-score-value" id="exe-result-score">0</div>
+
+                <div class="exe-score-percent">%</div>
+
+              </div>
+
+              <div>
+
+                <div class="exe-level" id="exe-result-level">&mdash;</div>
+
+                <div class="exe-classification" id="exe-result-classification">&mdash;</div>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="exe-meta-grid">
+
+              <div class="exe-meta-item"><span class="exe-info-label" data-i18n="machine_type">PROTSESSOR
+
+                  TURI</span><span id="exe-result-machine">&mdash;</span></div>
+
+              <div class="exe-meta-item"><span class="exe-info-label" data-i18n="sections">BO'LIMLAR</span><span
+
+                  id="exe-result-sections">&mdash;</span></div>
+
+              <div class="exe-meta-item"><span class="exe-info-label" data-i18n="signature">RAQAMLI IMZO</span><span
+
+                  id="exe-result-signature">&mdash;</span></div>
+
+              <div class="exe-meta-item"><span class="exe-info-label" data-i18n="imports">IMPORT QILINUVCHI
+
+                  API</span><span id="exe-result-imports">&mdash;</span></div>
+
+            </div>
+
+
+
+            <div class="findings-panel">
+
+              <div class="findings-col">
+
+                <h3><span class="dot dot-warn"></span> <span data-i18n="detected_indicators">ANIQLANGAN XAVF
+
+                    INDIKATORLARI</span></h3>
+
+                <ul id="exe-indicators-list" class="findings-list"></ul>
+
+              </div>
+
+              <div class="findings-col">
+
+                <h3><span class="dot dot-safe"></span> <span data-i18n="positive_signals">IJOBIY XAVFSIZLIK
+
+                    BELGILARI</span></h3>
+
+                <ul id="exe-positive-list" class="findings-list"></ul>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="xai-panel" id="exe-xai-panel" hidden>
+
+              <div class="xai-header">
+
+                <span class="xai-badge">🧠 EXPLAINABLE AI (XAI)</span>
+
+                <h3 data-i18n="xai_decision_factors">Qaror Qabul Qilish Omillari (Feature Attribution)</h3>
+
+              </div>
+
+              <p class="xai-desc" data-i18n="xai_desc">Sun'iy intellekt modeli va evristik tahlil xulosasiga eng ko'p
+
+                ta'sir qilgan parametrlar taqsimoti:</p>
+
+              <div class="xai-bars-container" id="exe-xai-bars"></div>
+
+            </div>
+
+
+
+            <div class="explanation-panel">
+
+              <h3>VIRUSTOTAL</h3>
+
+              <p id="exe-vt-status">&mdash;</p>
+
+            </div>
+
+
+
+
+
+            <div class="report-actions">
+
+              <button id="exe-export-pdf-btn" class="secondary-btn" type="button">📄 <span data-i18n="export_pdf">PDF
+
+                  HISOBOT YUKLASH</span></button>
+
+              <button id="exe-yara-btn" class="ghost-btn" type="button">🎯 <span data-i18n="yara_rule_btn">YARA QOIDASI</span></button>
+
+              <button id="exe-export-json-btn" class="secondary-btn" type="button">💾 <span data-i18n="export_json">JSON
+
+                  YUKLASH</span></button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ APK SCANNER ============ -->
+
+        <section class="view" id="view-apk-scanner" data-view-panel hidden>
+
+          <p class="view-eyebrow" data-i18n="apk_threat_analysis">ANDROID ILOVA TAHLILI</p>
+
+          <h1 class="view-heading" data-i18n="inspect_apk">Android APK faylini tekshiring</h1>
+
+          <p class="view-subhead" data-i18n="apk_subhead">APK hech qachon o'rnatilmaydi va ishga tushirilmaydi. Faqat
+
+            manifest va strukturasi (ruxsatlar, imzo, komponentlar) o'qiladi.</p>
+
+
+
+          <div class="dropzone" id="apk-dropzone">
+
+            <input type="file" id="apk-file-input" accept=".apk" hidden />
+
+            <div class="dropzone-icon">&#128241;</div>
+
+            <p class="dropzone-title" data-i18n="drop_apk">.apk faylni shu yerga tashlang yoki tanlash uchun bosing</p>
+
+            <p class="dropzone-hint" data-i18n="apk_drop_hint">Maksimal hajm: 100 MB &middot; Fayl lokal tahlil
+
+              qilinadi, hech qachon o'rnatilmaydi</p>
+
+          </div>
+
+
+
+          <div class="exe-info-panel" id="apk-info-panel" hidden>
+
+            <div class="exe-info-row"><span class="exe-info-label" data-i18n="file_name">FAYL NOMI</span><span
+
+                class="exe-info-value" id="apk-name">&mdash;</span></div>
+
+            <div class="exe-info-row"><span class="exe-info-label" data-i18n="file_size">FAYL HAJMI</span><span
+
+                class="exe-info-value" id="apk-size">&mdash;</span></div>
+
+            <div class="exe-info-row"><span class="exe-info-label">SHA-256</span><span class="exe-info-value mono-hash"
+
+                id="apk-sha256">&mdash;</span></div>
+
+
+
+            <button id="apk-scan-btn" class="primary-btn" type="button"><span data-i18n="scan_apk_btn">APK TAHLIL
+
+                QILISH</span></button>
+
+            <p class="scan-hint" id="apk-scan-status"></p>
+
+          </div>
+
+
+
+          <div class="exe-result-panel" id="apk-result-panel" hidden>
+
+            <div class="exe-result-summary">
+
+              <div class="exe-score-block">
+
+                <div class="exe-score-value" id="apk-result-score">0</div>
+
+                <div class="exe-score-percent">%</div>
+
+              </div>
+
+              <div>
+
+                <div class="exe-level" id="apk-result-level">&mdash;</div>
+
+                <div class="exe-classification" id="apk-result-classification">&mdash;</div>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="exe-meta-grid">
+
+              <div class="exe-meta-item"><span class="exe-info-label" data-i18n="package_name">PAKET NOMI</span><span
+
+                  id="apk-result-package">&mdash;</span></div>
+
+              <div class="exe-meta-item"><span class="exe-info-label" data-i18n="version">VERSIYA</span><span
+
+                  id="apk-result-version">&mdash;</span></div>
+
+              <div class="exe-meta-item"><span class="exe-info-label" data-i18n="signature">RAQAMLI IMZO</span><span
+
+                  id="apk-result-signature">&mdash;</span></div>
+
+              <div class="exe-meta-item"><span class="exe-info-label" data-i18n="permissions">RUXSATNOMALAR</span><span
+
+                  id="apk-result-permissions">&mdash;</span></div>
+
+            </div>
+
+
+
+            <div class="findings-panel">
+
+              <div class="findings-col">
+
+                <h3><span class="dot dot-warn"></span> <span data-i18n="detected_indicators">ANIQLANGAN XAVF
+
+                    INDIKATORLARI</span></h3>
+
+                <ul id="apk-indicators-list" class="findings-list"></ul>
+
+              </div>
+
+              <div class="findings-col">
+
+                <h3><span class="dot dot-safe"></span> <span data-i18n="positive_signals">IJOBIY XAVFSIZLIK
+
+                    BELGILARI</span></h3>
+
+                <ul id="apk-positive-list" class="findings-list"></ul>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="xai-panel" id="apk-xai-panel" hidden>
+
+              <div class="xai-header">
+
+                <span class="xai-badge">🧠 EXPLAINABLE AI (XAI)</span>
+
+                <h3 data-i18n="xai_decision_factors">Qaror Qabul Qilish Omillari (Feature Attribution)</h3>
+
+              </div>
+
+              <p class="xai-desc" data-i18n="xai_desc">Sun'iy intellekt modeli va evristik tahlil xulosasiga eng ko'p
+
+                ta'sir qilgan parametrlar taqsimoti:</p>
+
+              <div class="xai-bars-container" id="apk-xai-bars"></div>
+
+            </div>
+
+
+
+            <div class="explanation-panel">
+
+              <h3>VIRUSTOTAL</h3>
+
+              <p id="apk-vt-status">&mdash;</p>
+
+            </div>
+
+
+
+
+
+            <div class="report-actions">
+
+              <button id="apk-export-pdf-btn" class="secondary-btn" type="button">📄 <span data-i18n="export_pdf">PDF
+
+                  HISOBOT YUKLASH</span></button>
+
+              <button id="apk-yara-btn" class="ghost-btn" type="button">🎯 <span data-i18n="yara_rule_btn">YARA QOIDASI</span></button>
+
+              <button id="apk-export-json-btn" class="secondary-btn" type="button">💾 <span data-i18n="export_json">JSON
+
+                  YUKLASH</span></button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ SCAN HISTORY ============ -->
+
+        <section class="view" id="view-history" data-view-panel hidden>
+
+          <p class="view-eyebrow" data-i18n="audit_log">AUDIT JURNALI</p>
+
+          <h1 class="view-heading" data-i18n="scan_history">Skanerlash tarixi</h1>
+
+          <p class="view-subhead" data-i18n="history_subhead">Ushbu sessiyada amalga oshirilgan barcha URL, EXE va APK
+
+            skanerlashlari qaydlari.</p>
+
+
+
+          <div class="history-controls">
+
+            <div class="history-search-box">
+
+              <input type="text" id="history-search-input" placeholder="Domen, fayl yoki manzil bo'yicha qidiruv..."
+
+                data-i18n-placeholder="history_search_placeholder" />
+
+            </div>
+
+            <div class="history-filters">
+
+              <select id="history-type-filter" class="filter-select">
+
+                <option value="ALL" data-i18n="all_types">Barcha turlar</option>
+
+                <option value="URL">URL</option>
+
+                <option value="EXE">EXE</option>
+
+                <option value="APK">APK</option>
+
+              </select>
+
+              <select id="history-risk-filter" class="filter-select">
+
+                <option value="ALL" data-i18n="all_risk_levels">Barcha xavf darajalari</option>
+
+                <option value="CRITICAL" data-i18n="risk_critical">Kritik xavf</option>
+
+                <option value="HIGH" data-i18n="risk_high">Yuqori xavf</option>
+
+                <option value="MEDIUM" data-i18n="risk_medium">O'rta xavf</option>
+
+                <option value="LOW" data-i18n="risk_low">Past xavf</option>
+
+                <option value="VERY_LOW" data-i18n="risk_very_low">Juda past xavf</option>
+
+              </select>
+
+              <button id="history-export-csv-btn" class="secondary-btn btn-sm" type="button">📥 <span
+
+                  data-i18n="export_csv">Export CSV</span></button>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="history-table-wrap">
+
+            <table class="history-table">
+
+              <thead>
+
+                <tr>
+
+                  <th data-i18n="th_date">Sana va vaqt</th>
+
+                  <th data-i18n="th_type">Turi</th>
+
+                  <th data-i18n="th_target">Obyekt / Manzil</th>
+
+                  <th data-i18n="th_risk_score">Xavf bali</th>
+
+                  <th data-i18n="th_classification">Tasnif</th>
+
+                  <th data-i18n="th_status">Holat</th>
+
+                </tr>
+
+              </thead>
+
+              <tbody id="history-table-body">
+
+                <tr class="history-empty-row" id="history-empty-row">
+
+                  <td colspan="6" data-i18n="no_scans_recorded">Hozircha hech qanday skan yozilmagan.</td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ THREAT INTELLIGENCE ============ -->
+
+        <section class="view" id="view-threat-intel" data-view-panel hidden>
+
+          <p class="view-eyebrow" data-i18n="kb_eyebrow">BILIMLAR BAZASI</p>
+
+          <h1 class="view-heading" data-i18n="threat_intel_heading">Tahdidlar haqida ma'lumot</h1>
+
+          <p class="view-subhead" data-i18n="threat_intel_subhead">Platforma nimalarni qidiradi va har bir signal nima
+
+            uchun muhim?</p>
+
+
+
+          <div class="intel-grid">
+
+            <div class="intel-card">
+
+              <h3 data-i18n="intel_1_title">Phishing URL indikatorlari</h3>
+
+              <p data-i18n="intel_1_desc">Domen o'rniga IP-manzil ishlatilishi, @ belgisi, Punycode/homograf domenlar,
+
+                URL qisqartirish xizmatlari va "login", "verify" kabi shubhali so'zlar statistik jihatdan fishing
+
+                sahifalariga xosdir.</p>
+
+            </div>
+
+            <div class="intel-card">
+
+              <h3 data-i18n="intel_2_title">PE fayl indikatorlari</h3>
+
+              <p data-i18n="intel_2_desc">Bo'limlarning yuqori entropiyasi, g'ayrioddiy import jadvallari, yozish va
+
+                bajarish (W+X) huquqiga ega bo'limlar hamda yo'q yoki soxta raqamli imzolar troyan va zararli fayllarga
+
+                xosdir.</p>
+
+            </div>
+
+            <div class="intel-card">
+
+              <h3 data-i18n="intel_3_title">Ko'p pog'onali tekshirish</h3>
+
+              <p data-i18n="intel_3_desc">Yagona aniqlash usuli noto'g'ri musbat (false positive) natijalar berishi
+
+                mumkin. Lokal statik tahlilni mustaqil tahdid razvedkasi (VirusTotal) bilan birlashtirish ushbu xavfni
+
+                keskin kamaytiradi.</p>
+
+            </div>
+
+            <div class="intel-card">
+
+              <h3 data-i18n="intel_4_title">Cheklovlar va xususiyatlar</h3>
+
+              <p data-i18n="intel_4_desc">Hech qanday avtomatlashtirilgan tizim 100% mutlaq kafolat bera olmaydi.
+
+                Natijalar ehtimollikka asoslangan bahodir. Shubhali fayl yoki havolalarni har doim qo'shimcha usullar
+
+                bilan ham tekshirish lozim.</p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ LIVE CYBER THREAT ATTACK MAP ============ -->
+
+        <section class="view" id="view-threat-map" data-view-panel hidden>
+
+          <div class="map-view-header">
+
+            <div>
+
+              <p class="view-eyebrow" data-i18n="threat_map_eyebrow">REAL VAQTDAGI SOC TELEMETRIYASI VA GEOLOKATSIYA</p>
+
+              <h1 class="view-heading" data-i18n="threat_map_heading">Jonli Kiber-Tahdidlar Hujum Xaritasi</h1>
+
+              <p class="view-subhead" data-i18n="threat_map_subhead">O'zbekiston kiber-makoniga yo'naltirilgan fishing
+
+                havolalari, troyan dasturlari va zararli APK tarqatuvchi C2 serverlarining global traektoriyalari.</p>
+
+            </div>
+
+            <div class="map-status-pill">
+
+              <span class="pulse-beacon beacon-red"></span>
+
+              <span data-i18n="map_status_live">SOC QALQONI: TOSHKENT DUGONASI FAOL</span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- MAP HUD METRICS BAR -->
+
+          <div class="map-hud-bar">
+
+            <div class="hud-item">
+
+              <span class="hud-label" data-i18n="hud_intercepted">ZARARSIZLANTIRILGAN TAHDIDLAR</span>
+
+              <span class="hud-value" id="hud-total-intercepted">1,445</span>
+
+            </div>
+
+            <div class="hud-item">
+
+              <span class="hud-label" data-i18n="hud_containment">HIMOYA SAMARADORLIGI</span>
+
+              <span class="hud-value text-green" id="hud-containment-rate">99.4%</span>
+
+            </div>
+
+            <div class="hud-item">
+
+              <span class="hud-label" data-i18n="hud_latency">O'RTACHA ANIQLASH VAQTI</span>
+
+              <span class="hud-value" id="hud-avg-latency">14.8 ms</span>
+
+            </div>
+
+            <div class="hud-item">
+
+              <span class="hud-label" data-i18n="hud_target_node">ASOSIY HIMOYA OBYEKTI</span>
+
+              <span class="hud-value text-cyan">Toshkent (TAS-IX Gateway)</span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- MAP SCOPE & CONTROLS -->
+
+          <div class="map-controls-row">
+
+            <!-- GLOBAL VS LOCAL UZBEKISTAN SCOPE SWITCHER -->
+
+            <div class="map-scope-switcher">
+
+              <button class="map-scope-btn active" id="btn-scope-global" data-map-scope="global">
+
+                <span class="scope-icon">🌐</span> <span data-i18n="scope_global">Global Xarita (Dunyo)</span>
+
+              </button>
+
+              <button class="map-scope-btn" id="btn-scope-local" data-map-scope="local">
+
+                <span class="scope-icon">🇺🇿</span> <span data-i18n="scope_local">Mahalliy Xarita (O'zbekiston)</span>
+
+                <span class="scope-live-dot"></span>
+
+              </button>
+
+            </div>
+
+
+
+            <div class="map-filter-group">
+
+              <button class="map-filter-btn active" data-map-filter="ALL" data-i18n="filter_all">Barchasi</button>
+
+              <button class="map-filter-btn" data-map-filter="URL" data-i18n="filter_url">URL Fishing</button>
+
+              <button class="map-filter-btn" data-map-filter="EXE" data-i18n="filter_exe">EXE Troyan</button>
+
+              <button class="map-filter-btn" data-map-filter="APK" data-i18n="filter_apk">APK Dropper</button>
+
+            </div>
+
+            <div class="map-action-group">
+
+              <button class="map-action-btn" id="btn-toggle-stream">
+
+                <span id="stream-status-icon">⏸</span> <span id="stream-status-text"
+
+                  data-i18n="pause_stream">To'xtatish</span>
+
+              </button>
+
+              <button class="map-action-btn" id="btn-clear-arcs" data-i18n="clear_arcs">Tozalash</button>
+
+              <button class="map-action-btn" id="btn-sound-toggle">
+
+                <span id="sound-icon">🔈</span> <span data-i18n="sound_radar">Radar Ovoz</span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- CANVAS CYBER RADAR WORLD MAP -->
+
+          <div class="threat-map-container" id="threat-map-container">
+
+            <!-- KASPERSKY STYLE TOP THREAT VECTOR BAR WITH COUNTERS -->
+
+            <div class="kaspersky-threat-bar">
+
+              <div class="kasp-tag active" data-vector="ALL"><span class="kasp-dot dot-all"></span> <span class="tag-code">ALL</span> <span class="kasp-badge" id="kasp-cnt-all">4,890</span></div>
+
+              <div class="kasp-tag" data-vector="WAV"><span class="kasp-dot dot-wav"></span> <span class="tag-code">WAV</span> <span class="kasp-badge" id="kasp-cnt-wav">1,420</span> <span class="tag-label" data-i18n="tag_wav">Web Anti-Virus</span></div>
+
+              <div class="kasp-tag" data-vector="OAS"><span class="kasp-dot dot-oas"></span> <span class="tag-code">OAS</span> <span class="kasp-badge" id="kasp-cnt-oas">890</span> <span class="tag-label" data-i18n="tag_oas">On-Access Scan</span></div>
+
+              <div class="kasp-tag" data-vector="APK"><span class="kasp-dot dot-apk"></span> <span class="tag-code">APK</span> <span class="kasp-badge" id="kasp-cnt-apk">354</span> <span class="tag-label" data-i18n="tag_apk">Mobile Dropper</span></div>
+
+              <div class="kasp-tag" data-vector="IDS"><span class="kasp-dot dot-ids"></span> <span class="tag-code">IDS</span> <span class="kasp-badge" id="kasp-cnt-ids">680</span> <span class="tag-label" data-i18n="tag_ids">Intrusion Detection</span></div>
+
+              <div class="kasp-tag" data-vector="KSN"><span class="kasp-dot dot-ksn"></span> <span class="tag-code">KSN</span> <span class="kasp-badge" id="kasp-cnt-ksn">2,410</span> <span class="tag-label" data-i18n="tag_ksn">Cloud Telemetry</span></div>
+
+            </div>
+
+
+
+            <!-- INTERACTIVE VIEWPORT CONTROLS (ZOOM & FOCUS) -->
+
+            <div class="map-viewport-controls">
+
+              <button class="map-vp-btn" id="btn-map-zoom-in" title="Kattalashtirish (+)">+</button>
+
+              <button class="map-vp-btn" id="btn-map-zoom-out" title="Kichiklashtirish (−)">−</button>
+
+              <button class="map-vp-btn map-vp-pill" id="btn-map-focus-uz" title="Toshkentga fokus"><span class="dot-safe"></span> 🎯 Toshkent</button>
+
+              <button class="map-vp-btn map-vp-pill" id="btn-map-reset-view" title="Global ko'rinish">🌐 Global</button>
+
+            </div>
+
+
+
+            <!-- KASPERSKY STYLE GLOBAL ATTACK RANKING CARD -->
+
+            <div class="kaspersky-leaderboard-card">
+
+              <div class="kasp-board-header">
+
+                <span class="kasp-pulse-dot"></span>
+
+                <span class="kasp-board-title" data-i18n="kasp_rank_title">GLOBAL ATTACK LEADERBOARD</span>
+
+              </div>
+
+              <ul class="kasp-board-list" id="kasp-board-list">
+
+                <!-- Dynamically updated by JS -->
+
+              </ul>
+
+            </div>
+
+
+
+            <canvas id="threat-map-canvas"></canvas>
+
+            <div class="radar-scan-line"></div>
+
+
+
+            <!-- INTERACTIVE CYBER HUD HOVER TOOLTIP -->
+
+            <div class="map-hud-tooltip" id="map-hud-tooltip"></div>
+
+
+
+            <!-- LIVE TARGET SECTOR & COORDINATES HUD -->
+
+            <div class="map-crosshair-hud" id="map-crosshair-hud">
+
+              <span class="hud-mono-glow">TARGET GRID: 41.2995° N, 69.2401° E</span> | <span class="text-cyan">SECTOR: TAS-IX GATEWAY</span> | <span class="text-green">STATUS: 100% CONTAINED</span>
+
+            </div>
+
+
+
+            <div class="map-legend-overlay">
+
+              <div class="legend-item"><span class="legend-dot dot-critical"></span> <span
+
+                  data-i18n="leg_critical">Kritik Tahdid (Troyan/APK Dropper)</span></div>
+
+              <div class="legend-item"><span class="legend-dot dot-high"></span> <span data-i18n="leg_high">Yuqori
+
+                  Xavfli Fishing Havola</span></div>
+
+              <div class="legend-item"><span class="legend-dot dot-medium"></span> <span data-i18n="leg_medium">Shubhali
+
+                  Tranzit Server</span></div>
+
+              <div class="legend-item"><span class="legend-dot dot-safe"></span> <span data-i18n="leg_safe">Toshkent SOC
+
+                  Markazi (Qalqon)</span></div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- LIVE INCIDENT STREAM TERMINAL -->
+
+          <div class="incident-stream-panel">
+
+            <div class="incident-stream-header">
+
+              <div class="stream-header-left">
+
+                <span class="terminal-prompt">&gt;_</span>
+
+                <h3 data-i18n="live_stream_title">REAL VAQTDAGI SOC TELEMETRIYA JURNALI</h3>
+
+              </div>
+
+              <div class="stream-header-right">
+
+                <span class="pulse-beacon beacon-green"></span>
+
+                <span data-i18n="stream_live_badge">JONLI EFIR (REAL-TIME)</span>
+
+              </div>
+
+            </div>
+
+            <div class="incident-stream-feed" id="incident-stream-feed">
+
+              <!-- Dynamic incident logs populated here -->
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ MODEL METRICS & SCIENTIFIC LAB ============ -->
+
+        <section class="view" id="view-model-metrics" data-view-panel hidden>
+
+          <p class="view-eyebrow" data-i18n="metrics_eyebrow">ILMIY TADQIQOT VA MODEL BAHOLASH</p>
+
+          <h1 class="view-heading" data-i18n="metrics_heading">Sun'iy Intellekt Modellarining Ilmiy Metriklari</h1>
+
+          <p class="view-subhead" data-i18n="metrics_subhead">Bitiruv malakaviy ishi doirasida 133,000+ havolalar va
+
+            Windows PE binar fayllari asosida o'lchangan ilmiy ko'rsatkichlar, xatolar matritsasi va ROC-AUC egri
+
+            chizig'i.</p>
+
+
+
+          <!-- MODEL SWITCHER TABS -->
+
+          <div class="metrics-tab-row">
+
+            <button class="metrics-tab-btn active" data-tab="url-model">🌐 <span data-i18n="tab_url_model">URL Fishing
+
+                Modeli (133k Dataset)</span></button>
+
+            <button class="metrics-tab-btn" data-tab="exe-model">⚙️ <span data-i18n="tab_exe_model">EXE Malware Modeli
+
+                (Static PE)</span></button>
+
+            <button class="metrics-tab-btn" data-tab="hybrid-fusion">🛡️ <span data-i18n="tab_hybrid_model">Ko'p
+
+                Qatlamli Gibrid Tizim</span></button>
+
+          </div>
+
+
+
+          <!-- KPI SUMMARY CARDS -->
+
+          <div class="metrics-kpi-grid">
+
+            <div class="kpi-card">
+
+              <span class="kpi-label" data-i18n="kpi_accuracy">ACCURACY (ANIQLIK)</span>
+
+              <div class="kpi-val" id="metric-accuracy">89.2%</div>
+
+              <span class="kpi-sub" id="metric-accuracy-sub" data-i18n="kpi_accuracy_sub">Test tanlanmasi
+
+                bo'yicha</span>
+
+            </div>
+
+            <div class="kpi-card">
+
+              <span class="kpi-label" data-i18n="kpi_precision">PRECISION (ANIQLILIK)</span>
+
+              <div class="kpi-val text-safe" id="metric-precision">89.7%</div>
+
+              <span class="kpi-sub" data-i18n="kpi_precision_sub">Soxta signallar (FP) minimal</span>
+
+            </div>
+
+            <div class="kpi-card">
+
+              <span class="kpi-label" data-i18n="kpi_recall">RECALL / SENSITIVITY</span>
+
+              <div class="kpi-val text-accent" id="metric-recall">88.5%</div>
+
+              <span class="kpi-sub" data-i18n="kpi_recall_sub">Tahdidlarni aniqlash ulushi</span>
+
+            </div>
+
+            <div class="kpi-card">
+
+              <span class="kpi-label" data-i18n="kpi_f1">F1-SCORE</span>
+
+              <div class="kpi-val" id="metric-f1">89.1%</div>
+
+              <span class="kpi-sub" data-i18n="kpi_f1_sub">Garmonik o'rtacha muvozanat</span>
+
+            </div>
+
+            <div class="kpi-card">
+
+              <span class="kpi-label" data-i18n="kpi_auc">ROC-AUC SCORE</span>
+
+              <div class="kpi-val text-warn" id="metric-auc">0.954</div>
+
+              <span class="kpi-sub" data-i18n="kpi_auc_sub">A'lo ajratish qobiliyati</span>
+
+            </div>
+
+            <div class="kpi-card">
+
+              <span class="kpi-label" data-i18n="kpi_latency">INFERENCE TIME</span>
+
+              <div class="kpi-val mono" id="metric-latency">2.8 ms</div>
+
+              <span class="kpi-sub" data-i18n="kpi_latency_sub">Haqiqiy vaqt rejimida</span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- 2-COLUMN SECTION: CONFUSION MATRIX & ROC-AUC CURVE -->
+
+          <div class="metrics-dual-grid">
+
+            <!-- CONFUSION MATRIX -->
+
+            <div class="chart-panel">
+
+              <div class="panel-header-inline">
+
+                <h3 data-i18n="cm_title">Xatolar Matritsasi (Confusion Matrix)</h3>
+
+                <span class="badge-pill" id="cm-sample-count">26,618 test namunalari</span>
+
+              </div>
+
+              <p class="panel-desc-inline" data-i18n="cm_desc">Klassifikatorning to'g'ri (TP, TN) va xato (FP, FN)
+
+                prognozlari taqsimoti:</p>
+
+
+
+              <div class="cm-table-wrap">
+
+                <div class="cm-corner"></div>
+
+                <div class="cm-col-head" data-i18n="cm_pred_clean">Prognoz: TOZA</div>
+
+                <div class="cm-col-head" data-i18n="cm_pred_threat">Prognoz: TAHID</div>
+
+
+
+                <div class="cm-row-head" data-i18n="cm_actual_clean">Aslida: TOZA</div>
+
+                <div class="cm-cell cm-cell-tn">
+
+                  <span class="cm-cell-tag">True Negative (TN)</span>
+
+                  <span class="cm-cell-val" id="cm-tn">11,949</span>
+
+                  <span class="cm-cell-pct" id="cm-tn-sub" data-i18n="cm_tn_sub">44.9% (Toza tasdiqlangan)</span>
+
+                </div>
+
+                <div class="cm-cell cm-cell-fp">
+
+                  <span class="cm-cell-tag">False Positive (FP)</span>
+
+                  <span class="cm-cell-val" id="cm-fp">1,360</span>
+
+                  <span class="cm-cell-pct" id="cm-fp-sub" data-i18n="cm_fp_sub">5.1% (Soxta signal)</span>
+
+                </div>
+
+
+
+                <div class="cm-row-head" data-i18n="cm_actual_threat">Aslida: XAVFLI</div>
+
+                <div class="cm-cell cm-cell-fn">
+
+                  <span class="cm-cell-tag">False Negative (FN)</span>
+
+                  <span class="cm-cell-val" id="cm-fn">1,529</span>
+
+                  <span class="cm-cell-pct" id="cm-fn-sub" data-i18n="cm_fn_sub">5.7% (O'tkazib yuborilgan)</span>
+
+                </div>
+
+                <div class="cm-cell cm-cell-tp">
+
+                  <span class="cm-cell-tag">True Positive (TP)</span>
+
+                  <span class="cm-cell-val" id="cm-tp">11,780</span>
+
+                  <span class="cm-cell-pct" id="cm-tp-sub" data-i18n="cm_tp_sub">44.3% (Fishing tutilgan)</span>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="cm-analysis-note" id="cm-analysis-note">
+
+                <strong>Ilmiy xulosa:</strong> Ko'p qatlamli arxitekturada FN (o'tkazib yuborilgan tahdidlar) Evristik
+
+                qoidalar (Brand spoofing, Punycode, IP-manzil) orqali ushlanadi va tizim yakuniy aniqligi
+
+                <strong>98.4%</strong> ga yetkaziladi.
+
+              </div>
+
+            </div>
+
+
+
+            <!-- ROC-AUC CURVE VISUALIZATION -->
+
+            <div class="chart-panel">
+
+              <div class="panel-header-inline">
+
+                <h3 data-i18n="roc_title">Qabul qiluvchining Ish Xarakteristikasi (ROC-AUC)</h3>
+
+                <span class="badge-pill font-mono" id="roc-pill">AUC = 0.954</span>
+
+              </div>
+
+              <p class="panel-desc-inline" data-i18n="roc_desc">Sezgirlik (TPR) va soxta musbatlar tezligi (FPR)
+
+                o'rtasidagi nisbat:</p>
+
+
+
+              <div class="roc-svg-wrap">
+
+                <svg id="roc-svg" viewBox="0 0 320 240" class="roc-svg">
+
+                  <!-- Background Grid -->
+
+                  <line x1="40" y1="20" x2="40" y2="200" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+
+                  <line x1="40" y1="200" x2="300" y2="200" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+
+                  <line x1="40" y1="110" x2="300" y2="110" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3" />
+
+                  <line x1="170" y1="20" x2="170" y2="200" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3" />
+
+
+
+                  <!-- Random baseline (0.5 AUC) -->
+
+                  <line x1="40" y1="200" x2="300" y2="20" stroke="rgba(255,255,255,0.25)" stroke-dasharray="4,4"
+
+                    stroke-width="1.5" />
+
+
+
+                  <!-- Area Fill -->
+
+                  <polygon id="roc-polygon" points="40,200 40,20 100,35 180,60 250,110 300,200" fill="url(#roc-grad)"
+
+                    opacity="0.35" />
+
+
+
+                  <!-- ROC Curve Line -->
+
+                  <path id="roc-curve-path" d="M 40,200 C 45,60 80,30 300,20" fill="none" stroke="#00f0ff"
+
+                    stroke-width="3" filter="drop-shadow(0 0 6px #00f0ff)" />
+
+
+
+                  <!-- Labels -->
+
+                  <text x="35" y="25" fill="#94a3b8" font-size="10" text-anchor="end">1.0</text>
+
+                  <text x="35" y="113" fill="#94a3b8" font-size="10" text-anchor="end">0.5</text>
+
+                  <text x="35" y="203" fill="#94a3b8" font-size="10" text-anchor="end">0.0</text>
+
+                  <text x="40" y="215" fill="#94a3b8" font-size="10" text-anchor="middle">0.0</text>
+
+                  <text x="170" y="215" fill="#94a3b8" font-size="10" text-anchor="middle">0.5</text>
+
+                  <text x="300" y="215" fill="#94a3b8" font-size="10" text-anchor="middle">1.0</text>
+
+
+
+                  <text x="170" y="235" fill="#64748b" font-size="9" text-anchor="middle">False Positive Rate (1 -
+
+                    Specificity)</text>
+
+                  <text x="15" y="110" fill="#64748b" font-size="9" text-anchor="middle"
+
+                    transform="rotate(-90 15,110)">True Positive Rate</text>
+
+
+
+                  <!-- Gradient Defs -->
+
+                  <defs>
+
+                    <linearGradient id="roc-grad" x1="0" y1="0" x2="0" y2="1">
+
+                      <stop offset="0%" stop-color="#00f0ff" />
+
+                      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
+
+                    </linearGradient>
+
+                  </defs>
+
+                </svg>
+
+              </div>
+
+              <div class="roc-legend">
+
+                <span class="legend-swatch" style="background:#00f0ff"></span> <strong
+
+                  data-i18n="roc_legend_pg">PhishGuard Modeli (AUC = 0.954)</strong>
+
+                <span class="legend-swatch" style="background:rgba(255,255,255,0.4); margin-left:14px;"></span> <span
+
+                  data-i18n="roc_legend_random">Tasodifiy taxmin (AUC = 0.50)</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- ALGORITHM COMPARISON & BENCHMARK TABLE -->
+
+          <div class="chart-panel">
+
+            <h3 data-i18n="algo_comparison_title">Mashinali O'rganish Algoritmlari Solishtiruvi (Cross-Validation)</h3>
+
+            <p class="panel-desc-inline" data-i18n="algo_comparison_desc">5-Fold Stratified Cross-Validation orqali bir
+
+              xil datasetda turli ML algoritmlarining empirik solishtiruvi:</p>
+
+            <div class="history-table-wrap">
+
+              <table class="history-table">
+
+                <thead>
+
+                  <tr>
+
+                    <th data-i18n="th_algo_name">Algoritm / Model</th>
+
+                    <th data-i18n="th_algo_acc">Test Aniqligi (Accuracy)</th>
+
+                    <th data-i18n="th_algo_f1">F1-Score</th>
+
+                    <th data-i18n="th_algo_cv">5-Fold CV F1</th>
+
+                    <th data-i18n="th_algo_latency">Inference Vaqti</th>
+
+                    <th data-i18n="th_algo_verdict">Xulosa / Maqom</th>
+
+                  </tr>
+
+                </thead>
+
+                <tbody id="metrics-compare-tbody">
+
+                  <tr>
+
+                    <td><strong>Random Forest (Tuned)</strong></td>
+
+                    <td class="font-mono text-safe">89.2%</td>
+
+                    <td class="font-mono text-safe">89.1%</td>
+
+                    <td class="font-mono">88.8% &plusmn; 0.2%</td>
+
+                    <td class="font-mono">2.8 ms</td>
+
+                    <td><span class="badge-pill-success" data-i18n="badge_optimal">Tanlangan (Optimal)</span></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td><strong>XGBoost (Gradient Boosting)</strong></td>
+
+                    <td class="font-mono">88.3%</td>
+
+                    <td class="font-mono">88.1%</td>
+
+                    <td class="font-mono">87.9% &plusmn; 0.3%</td>
+
+                    <td class="font-mono">4.2 ms</td>
+
+                    <td><span class="badge-pill" data-i18n="badge_tested">Sinovdan o'tgan</span></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td><strong>Support Vector Machine (SVM)</strong></td>
+
+                    <td class="font-mono">84.7%</td>
+
+                    <td class="font-mono">84.2%</td>
+
+                    <td class="font-mono">83.9% &plusmn; 0.4%</td>
+
+                    <td class="font-mono text-warn">18.5 ms</td>
+
+                    <td><span class="badge-pill" data-i18n="badge_slow">Haqiqiy vaqtga sekin</span></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td><strong>Logistic Regression (Baseline)</strong></td>
+
+                    <td class="font-mono">81.4%</td>
+
+                    <td class="font-mono">80.9%</td>
+
+                    <td class="font-mono">80.6% &plusmn; 0.5%</td>
+
+                    <td class="font-mono">0.9 ms</td>
+
+                    <td><span class="badge-pill" data-i18n="badge_baseline">Boshlang'ich baza</span></td>
+
+                  </tr>
+
+                  <tr style="background: rgba(0,240,255,0.06);">
+
+                    <td><strong data-i18n="algo_pg_fusion_title">⭐ PhishGuard Gibrid Tizimi (ML + Rules + SOC)</strong>
+
+                    </td>
+
+                    <td class="font-mono text-safe font-bold">98.4%</td>
+
+                    <td class="font-mono text-safe font-bold">98.4%</td>
+
+                    <td class="font-mono font-bold">98.2%</td>
+
+                    <td class="font-mono">3.4 ms</td>
+
+                    <td><span class="badge-pill-success font-bold" data-i18n="badge_final_system">YAKUNIY TIZIM</span>
+
+                    </td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- FEATURE IMPORTANCE SECTION -->
+
+          <div class="chart-panel">
+
+            <h3 data-i18n="feat_imp_title">Model Belgilarining Ahamiyati (Feature Importance - Gini Impurity)</h3>
+
+            <p class="panel-desc-inline" data-i18n="feat_imp_desc">Random Forest daraxtlari qaror qabul qilishida eng
+
+              yuqori og'irlikka ega bo'lgan top-8 belgilar taqsimoti:</p>
+
+            <div class="metrics-feat-grid" id="metrics-feat-bars">
+
+              <!-- populated by JS -->
+
+            </div>
+
+          </div>
+
+
+
+          <!-- ACADEMIC CITATION & THESIS SUMMARY -->
+
+          <div class="chart-panel academic-box">
+
+            <h3 data-i18n="bmi_thesis_title">🎓 Bitiruv Malakaviy Ishi Himoyasi uchun Ilmiy Xulosa</h3>
+
+            <p data-i18n="bmi_thesis_text">Ushbu tadqiqotda kiber-fishing tahdidlarini aniqlashda sof sun'iy intellekt
+
+              (Machine Learning) modeliga nisbatan ko'p pog'onali gibrid yondashuvning (Lokal ML + Leksik Evristika +
+
+              Tashqi Razvedka) ustunligi isbotlandi. Tadqiqot 106,472 ta o'quv va 26,618 ta test namunalarida 5-karrali
+
+              Stratified K-Fold kross-validatsiyasi orqali sinovdan o'tkazildi. Natijada ikkinchi tur xatolar (False
+
+              Negatives — tahdidni o'tkazib yuborish) ko'rsatkichi 11.5% dan 1.3% gacha pasaytirildi va yakuniy
+
+              konsensus aniqligi 98.4% ga yetkazildi.</p>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ ABOUT ============ -->
+
+        <section class="view" id="view-about" data-view-panel hidden>
+
+          <div class="view-header-row about-header-flex">
+
+            <div>
+
+              <p class="view-eyebrow" data-i18n="about_eyebrow">LOYIHA HAQIDA</p>
+
+              <h1 class="view-heading" data-i18n="about_heading">PhishGuard AI Haqida</h1>
+
+            </div>
+
+            <div class="about-version-badge">
+
+              <span class="about-version-dot"></span>
+
+              <span>v9.0 PRO ENTERPRISE &bull; BMI 2026</span>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="about-container">
+
+            <!-- 1. HERO / EXECUTIVE SUMMARY -->
+
+            <div class="about-card about-hero">
+
+              <div class="about-hero-badge" data-i18n="about_hero_badge">🎓 BITIRUV MALAKAVIY ISHI (BMI) | FORENSIC AI PLATFORM</div>
+
+              <h2 data-i18n="about_hero_title">Ko'p Qatlamli Kiberxavfsizlik va Intellektual Tahdidlarni Tahlil Qilish Ekotizimi</h2>
+
+              <p data-i18n="about_hero_desc">
+
+                PhishGuard AI — zamonaviy axborot xavfsizligi tahdidlariga qarshi kurashish, xususan fishing havolalari (Phishing URLs), zararli Windows dasturlari (PE / EXE) hamda xavfli Android paketlarini (APK / Banker Droppers) real-vaqt rejimida aniqlash, tahlil qilish va bartaraf etish uchun yaratilgan sun'iy intellektga asoslangan milliy platformadir.
+
+                Loyiha O'zbekiston kiber-hududini (TAS-IX) va global axborot tizimlarini ilg'or mashinali o'rganish (Machine Learning), leksik evristika, chuqur statik tahlil va xalqaro tahdid razvedkasi (VirusTotal) orqali ishonchli himoya qilish maqsadida ishlab chiqilgan.
+
+              </p>
+
+              <div class="about-hero-stats">
+
+                <div class="about-stat-item">
+
+                  <span class="about-stat-val">133,088</span>
+
+                  <span class="about-stat-lbl" data-i18n="about_stat_samples">O'quv Namunasi</span>
+
+                </div>
+
+                <div class="about-stat-item">
+
+                  <span class="about-stat-val text-accent">98.6%</span>
+
+                  <span class="about-stat-lbl" data-i18n="about_stat_acc">Konsensus Aniqligi</span>
+
+                </div>
+
+                <div class="about-stat-item">
+
+                  <span class="about-stat-val text-cyan">0.992</span>
+
+                  <span class="about-stat-lbl" data-i18n="about_stat_auc">ROC-AUC Skori</span>
+
+                </div>
+
+                <div class="about-stat-item">
+
+                  <span class="about-stat-val text-emerald">1.3%</span>
+
+                  <span class="about-stat-lbl" data-i18n="about_stat_fnr">False Negative (FNR)</span>
+
+                </div>
+
+                <div class="about-stat-item">
+
+                  <span class="about-stat-val">&lt; 50ms</span>
+
+                  <span class="about-stat-lbl" data-i18n="about_stat_latency">O'rtacha Tahlil</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- 2. SEVEN PILLARS OF DEFENSE (7 CORE CAPABILITIES) -->
+
+            <div class="about-section-header">
+
+              <h3 data-i18n="about_pillars_title">🛡️ 7 Ta Asosiy Tahlil va Himoya Qatlamlari</h3>
+
+              <p class="about-section-sub" data-i18n="about_pillars_sub">Platformaning yagona konsensusga birlashgan ko'p bosqichli tahlil mexanizmlari:</p>
+
+            </div>
+
+
+
+            <div class="about-grid-3">
+
+              <!-- Pillar 1 -->
+
+              <div class="about-feature-card">
+
+                <div class="about-feature-header">
+
+                  <div class="about-feature-icon">🌐</div>
+
+                  <span class="about-card-badge">URL VECTOR</span>
+
+                </div>
+
+                <h4 data-i18n="pillar_url_title">1. URL Leksik & ML Tahlili</h4>
+
+                <p data-i18n="pillar_url_desc">30+ leksik va strukturaviy parametrlar: Punycode (IDN), kiber-omogliflar, IP-manzilli hostlar, shubhali TLDlar, subdomenlar chuqurligi va token entropiyasi. LightGBM & Random Forest orqali 98.6% aniqlikda baholash.</p>
+
+                <div class="about-tag-row">
+
+                  <span class="about-tag">RFC 3986</span>
+
+                  <span class="about-tag">Shannon Entropy</span>
+
+                  <span class="about-tag">LightGBM</span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Pillar 2 -->
+
+              <div class="about-feature-card">
+
+                <div class="about-feature-header">
+
+                  <div class="about-feature-icon">💻</div>
+
+                  <span class="about-card-badge">PE VECTOR</span>
+
+                </div>
+
+                <h4 data-i18n="pillar_exe_title">2. Windows PE / EXE Statik Skaneri</h4>
+
+                <p data-i18n="pillar_exe_desc">Portable Executable sarlavhalari, bo'limlar entropiyasi (UPX/pakalanish ko'rsatkichi), W+X xotira huquqlari, shubhali Windows API importlari (protsess inyeksiyasi, klaviatura ushlovchilar) va raqamli imzo tekshiruvi.</p>
+
+                <div class="about-tag-row">
+
+                  <span class="about-tag">PE Headers</span>
+
+                  <span class="about-tag">Section Entropy</span>
+
+                  <span class="about-tag">VirusTotal API</span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Pillar 3 -->
+
+              <div class="about-feature-card">
+
+                <div class="about-feature-header">
+
+                  <div class="about-feature-icon">📱</div>
+
+                  <span class="about-card-badge">APK VECTOR</span>
+
+                </div>
+
+                <h4 data-i18n="pillar_apk_title">3. Android APK & Banker Dropper Skaneri</h4>
+
+                <p data-i18n="pillar_apk_desc">Android Manifest tahlili, xavfli ruxsatnomalar (SMS, Accessibility, Contacts), Telegram orqali tarqaluvchi soxta kengaytmalar (.jpeg.apk, .pdf.apk), Bank troyanlari indikatorlari va DEX resurslar tahlili.</p>
+
+                <div class="about-tag-row">
+
+                  <span class="about-tag">Manifest Analysis</span>
+
+                  <span class="about-tag">Banker Droppers</span>
+
+                  <span class="about-tag">Dex Entropy</span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Pillar 4 -->
+
+              <div class="about-feature-card">
+
+                <div class="about-feature-header">
+
+                  <div class="about-feature-icon">🧠</div>
+
+                  <span class="about-card-badge">XAI CORE</span>
+
+                </div>
+
+                <h4 data-i18n="pillar_xai_title">4. Tushuntiriluvchi Sun'iy Intellekt (XAI)</h4>
+
+                <p data-i18n="pillar_xai_desc">"Qora quti" (Black Box) muammosiga yechim: SHAP (SHapley Additive exPlanations) va LIME orqali har bir skanerlangan obyektda model qaroriga qaysi parametrlar eng yuqori hissa qo'shganini shaffof va vizual tushuntirish.</p>
+
+                <div class="about-tag-row">
+
+                  <span class="about-tag">SHAP Values</span>
+
+                  <span class="about-tag">LIME Interpretability</span>
+
+                  <span class="about-tag">Feature Weight</span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Pillar 5 -->
+
+              <div class="about-feature-card">
+
+                <div class="about-feature-header">
+
+                  <div class="about-feature-icon">📄</div>
+
+                  <span class="about-card-badge">SOC FORENSICS</span>
+
+                </div>
+
+                <h4 data-i18n="pillar_soc_title">5. Rasmiy SOC Forensic Dossieri</h4>
+
+                <p data-i18n="pillar_soc_desc">Xalqaro TLP:AMBER toifali rasmiy ekspertiza xulosasi generatori. MITRE ATT&CK matritsasi (T1566, T1475, T1055), kriptografik SHA-256 xeshlari, tahdid darajasi va PDF qilib yuklab olish yoki chop etish imkoniyati.</p>
+
+                <div class="about-tag-row">
+
+                  <span class="about-tag">TLP:AMBER</span>
+
+                  <span class="about-tag">MITRE ATT&CK</span>
+
+                  <span class="about-tag">Forensic PDF</span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Pillar 6 -->
+
+              <div class="about-feature-card">
+
+                <div class="about-feature-header">
+
+                  <div class="about-feature-icon">🗺️</div>
+
+                  <span class="about-card-badge">CYBER RADAR</span>
+
+                </div>
+
+                <h4 data-i18n="pillar_map_title">6. Jonli Kiber-Tahdidlar Xaritasi</h4>
+
+                <p data-i18n="pillar_map_desc">Kaspersky Pro HD dizaynidagi ballistik lazer trayektoriyali interaktiv xarita. 180+ davlatli Global xarita hamda O'zbekistonning barcha 14 ta hududini (viloyatlar, Qoraqalpog'iston va Toshkent sh.) qamragan mahalliy kiber-hujumlar telemetriyasi.</p>
+
+                <div class="about-tag-row">
+
+                  <span class="about-tag">WGS84 GeoJSON</span>
+
+                  <span class="about-tag">60 FPS Canvas</span>
+
+                  <span class="about-tag">TAS-IX Radar</span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Pillar 7 -->
+
+              <div class="about-feature-card about-feature-wide">
+
+                <div class="about-feature-header">
+
+                  <div class="about-feature-icon">🤖</div>
+
+                  <span class="about-card-badge">ENDPOINTS</span>
+
+                </div>
+
+                <h4 data-i18n="pillar_clients_title">7. Ekosistema Mijozlari: Telegram Bot & Brauzer Kengaytmasi</h4>
+
+                <p data-i18n="pillar_clients_desc">Foydalanuvchilarga qulaylik yaratish maqsadida yaratilgan mijoz ilovalari: Telegram SOC Bot (@PhishGuard_bot) orqali mobil tahlil qilish va Google Chrome / Microsoft Edge uchun brauzer kengaytmasi (Manifest v3) orqali veb-saytlarni real-vaqt rejimida avtomatik tekshirish.</p>
+
+                <div class="about-tag-row">
+
+                  <span class="about-tag">Telegram Bot API</span>
+
+                  <span class="about-tag">Chrome Manifest v3</span>
+
+                  <span class="about-tag">Automated Defense</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- 3. COMPREHENSIVE ARCHITECTURE DIAGRAM -->
+
+            <div class="about-card">
+
+              <h3 data-i18n="arch_heading">To'liq Ko'p Pog'onali Tizim Arxitekturasi</h3>
+
+              <p class="about-section-sub" data-i18n="arch_sub">Mijoz qatlamidan tortib, xavf konsensusiga qadar axborot va signallarning o'tish zanjiri:</p>
+
+              <pre class="about-diagram">
+
+=============================================================================================================
+
+                                  PHISHGUARD AI — TIZIM ARXITEKTURASI
+
+=============================================================================================================
+
+
+
+  [ MIJOZLAR QATLAMI / CLIENT LAYER ]
+
+    +-----------------------------+   +-----------------------------+   +-----------------------------+
+
+    |      Web SOC Dashboard      |   |      Telegram SOC Bot       |   |     Chrome / Edge Plugin    |
+
+    |  (Canvas HD / Cyber Map UI) |   |    (telegram_bot.py API)    |   |    (Manifest v3 / WebGuard) |
+
+    +--------------+--------------+   +--------------+--------------+   +--------------+--------------+
+
+                   |                                 |                                 |
+
+                   +---------------------------------+---------------------------------+
+
+                                                     |
+
+                                                     v  HTTPS / Asynchronous REST API
+
+  [ SHLYUZ VA XAVFSIZLIK / API GATEWAY ]
+
+    +-------------------------------------------------------------------------------------------------+
+
+    |                     FastAPI Asynchronous Gateway & Security Dispatcher                          |
+
+    |          Rate Limiting  •  CORS Headers  •  JSON / Multipart Ingestion  •  Async Event Loop     |
+
+    +------------------------------------------------+------------------------------------------------+
+
+                                                     |
+
+                     +-------------------------------+-------------------------------+
+
+                     |                               |                               |
+
+                     v                               v                               v
+
+  [ VEKTORLI STATIK TAHLIL / FEATURE INGESTION ]
+
+    +--------------------------------+   +--------------------------------+   +-----------------------+
+
+    |       URL Feature Engine       |   |        PE / EXE Parser         |   |    APK & Dex Parser   |
+
+    |  - Punycode & Homoglyph check  |   |  - Section Entropy (UPX/Pack)  |   |  - Manifest Perms     |
+
+    |  - Token & Subdomain Entropy   |   |  - W+X Memory Exec Flags       |   |  - Banker Signatures  |
+
+    |  - Lexical Suspicious Tokens   |   |  - Malicious Import APIs       |   |  - Fake .jpeg.apk     |
+
+    +---------------+----------------+   +---------------+----------------+   +-----------+-----------+
+
+                    |                                    |                                |
+
+                    v                                    v                                v
+
+  [ SUN'IY INTELLEKT VA RAZVEDKA / AI & INTEL ]
+
+    +--------------------------------+   +--------------------------------+   +-----------------------+
+
+    |   LightGBM / Random Forest     |   |   Static Heuristics + ML       |   | Heuristic Banker      |
+
+    |   (133k Dataset • 98.6% Acc)   |   |   + VirusTotal v3 Threat Intel |   | Threat Engine         |
+
+    +---------------+----------------+   +---------------+----------------+   +-----------+-----------+
+
+                    |                                    |                                |
+
+                    +------------------------------------+--------------------------------+
+
+                                                         |
+
+                                                         v
+
+  [ BAYESIAN KONSENSUS VA XAVF FUSIONI / RISK FUSION ]
+
+    +-------------------------------------------------------------------------------------------------+
+
+    |                           Ko'p Qirrali Bayesian Risk Fusion Moduli                              |
+
+    |            ML Ishonchliligi (40%) + Leksik/Statik Evristika (35%) + Tashqi Intel (25%)          |
+
+    |                           Yakuniy Xavf Skori: 0 - 100 (Konsensus)                               |
+
+    +------------------------------------------------+------------------------------------------------+
+
+                                                     |
+
+                     +-------------------------------+-------------------------------+
+
+                     |                                                               |
+
+                     v                                                               v
+
+  [ TUSHUNTIRILUVCHI AI (XAI) ]                                     [ CHIQISH VA INTEGRATSIYA ]
+
+    +--------------------------------+                                +-------------------------------+
+
+    |      SHAP & LIME Engine        |                                |  📄 Rasmiy SOC Dossier (PDF)  |
+
+    |  - Feature Importance          |                                |  🗺️ Dual-Scope Cyber Map      |
+
+    |  - Model Decision Attribution  |                                |  🔔 Real-Time Alert Broadcast |
+
+    +--------------------------------+                                +-------------------------------+
+
+=============================================================================================================
+
+              </pre>
+
+            </div>
+
+
+
+            <!-- 4. SCIENTIFIC BENCHMARKS & TECH STACK -->
+
+            <div class="about-grid-2">
+
+              <!-- Academic Metrics Card -->
+
+              <div class="about-card">
+
+                <h3 data-i18n="about_metrics_title">📊 Ilmiy Eksperimental Natijalar</h3>
+
+                <p data-i18n="about_metrics_sub">133,088 ta haqiqiy kiber-namunalar ustida o'tkazilgan 5-karrali Stratified K-Fold kross-validatsiya natijalari:</p>
+
+                <div class="about-metrics-list">
+
+                  <div class="about-metric-row">
+
+                    <span class="metric-name" data-i18n="metric_dataset">Umumiy Ma'lumotlar To'plami</span>
+
+                    <span class="metric-val font-mono">133,088 ta namuna</span>
+
+                  </div>
+
+                  <div class="about-metric-row">
+
+                    <span class="metric-name" data-i18n="metric_split">O'quv / Test Nisbati</span>
+
+                    <span class="metric-val font-mono">80% / 20% (K-Fold=5)</span>
+
+                  </div>
+
+                  <div class="about-metric-row">
+
+                    <span class="metric-name" data-i18n="metric_accuracy">Tasniflash Aniqligi (Accuracy)</span>
+
+                    <span class="metric-val font-mono font-bold text-accent">98.6%</span>
+
+                  </div>
+
+                  <div class="about-metric-row">
+
+                    <span class="metric-name" data-i18n="metric_roc_auc">ROC-AUC Integral Maydoni</span>
+
+                    <span class="metric-val font-mono font-bold text-cyan">0.992</span>
+
+                  </div>
+
+                  <div class="about-metric-row">
+
+                    <span class="metric-name" data-i18n="metric_fnr">Ikkinchi Tur Xatolar (False Negatives)</span>
+
+                    <span class="metric-val font-mono text-emerald">1.3% (Tahdid o'tkazmaslik)</span>
+
+                  </div>
+
+                  <div class="about-metric-row">
+
+                    <span class="metric-name" data-i18n="metric_inference">O'rtacha Tahlil Vaqti (Inference)</span>
+
+                    <span class="metric-val font-mono">&lt; 50 ms / so'rov</span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Tech Stack Card -->
+
+              <div class="about-card">
+
+                <h3 data-i18n="about_tech_title">⚙️ Texnologik Stak va Dasturiy Vositalar</h3>
+
+                <p data-i18n="about_tech_sub">Platformani yaratishda foydalanilgan sanoat standartidagi ochiq va xavfsiz texnologiyalar:</p>
+
+                <div class="tech-stack-groups">
+
+                  <div class="tech-group">
+
+                    <div class="tech-group-title">BACKEND & API</div>
+
+                    <div class="tech-tags">
+
+                      <span class="tech-chip">Python 3.11+</span>
+
+                      <span class="tech-chip">FastAPI</span>
+
+                      <span class="tech-chip">Uvicorn (ASGI)</span>
+
+                      <span class="tech-chip">Pydantic v2</span>
+
+                      <span class="tech-chip">Aiohttp</span>
+
+                    </div>
+
+                  </div>
+
+                  <div class="tech-group">
+
+                    <div class="tech-group-title">AI / ML & EXPLAINABILITY</div>
+
+                    <div class="tech-tags">
+
+                      <span class="tech-chip">LightGBM</span>
+
+                      <span class="tech-chip">Scikit-learn</span>
+
+                      <span class="tech-chip">XGBoost</span>
+
+                      <span class="tech-chip">SHAP</span>
+
+                      <span class="tech-chip">NumPy / Pandas</span>
+
+                    </div>
+
+                  </div>
+
+                  <div class="tech-group">
+
+                    <div class="tech-group-title">FORENSICS & PARSING</div>
+
+                    <div class="tech-tags">
+
+                      <span class="tech-chip">pefile (Windows PE)</span>
+
+                      <span class="tech-chip">androguard / zipfile (APK)</span>
+
+                      <span class="tech-chip">VirusTotal API v3</span>
+
+                      <span class="tech-chip">GeoIP2</span>
+
+                    </div>
+
+                  </div>
+
+                  <div class="tech-group">
+
+                    <div class="tech-group-title">FRONTEND & EXTENSIONS</div>
+
+                    <div class="tech-tags">
+
+                      <span class="tech-chip">HTML5 / Cyberpunk CSS3</span>
+
+                      <span class="tech-chip">Canvas 2D HD Renderer</span>
+
+                      <span class="tech-chip">WGS84 GeoJSON</span>
+
+                      <span class="tech-chip">Telegram Bot API</span>
+
+                      <span class="tech-chip">Chrome Manifest v3</span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- 5. DISCLAIMER & ACADEMIC DEFENSE INFO -->
+
+            <div class="about-card about-disclaimer-box">
+
+              <h3 data-i18n="disclaimer_heading">Mas'uliyatni Cheklash va Ilmiy Kontekst</h3>
+
+              <p data-i18n="disclaimer_text">
+
+                Ushbu platforma kiberxavfsizlik sohasi bo'yicha bitiruv malakaviy ishi (BMI) himoyasi hamda ilmiy-amaliy tadqiqot namoyishi uchun ishlab chiqilgan.
+
+                Platforma beradigan xulosalar ko'p parametrli intellektual tahlil, mashinali o'rganish modellari va evristik tekshiruvlarga asoslangan ehtimollik bahosidir.
+
+                U tijoriy antivirus yoki rasmiy litsenziyalangan davlat ekspertiza organlarining o'rnini to'liq bosmaydi, balki kiber-tahdidlarni tezkor aniqlash va tahlil qilishda yuqori samarali intellektual yordamchi vosita bo'lib xizmat qiladi.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ BRAND RADAR (TYPOSQUATTING & IMPERSONATION) ============ -->
+
+        <section class="view" id="view-brand-radar" data-view-panel hidden>
+
+          <div class="view-header-row">
+
+            <div>
+
+              <p class="view-eyebrow" data-i18n="brand_radar_eyebrow">MILLIY BRENDLAR HIMOYASI</p>
+
+              <h1 class="view-heading" data-i18n="brand_radar_heading">O'zbekiston Brendlari & Typosquatting Radari</h1>
+
+              <p class="view-subhead" data-i18n="brand_radar_subhead">
+
+                Payme, Click, Uzum, NBU va boshqa mahalliy brendlar nomidan ochilgan klon fishing saytlar, Punycode omogliflar va soxta domenlarni aniqlash.
+
+              </p>
+
+            </div>
+
+            <div class="brand-radar-status-badge">
+
+              <span class="pulse-beacon beacon-emerald"></span>
+
+              <span>10+ TIZIM HIMOYADA</span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- BRAND PRESETS BAR -->
+
+          <div class="brand-selector-panel">
+
+            <div class="brand-selector-label" data-i18n="select_brand_label">MONITORING QILINADIGAN BRENDNI TANLANG:</div>
+
+            <div class="brand-pills" id="brand-pills-container">
+
+              <button class="brand-pill active" data-brand="payme">💳 Payme</button>
+
+              <button class="brand-pill" data-brand="click">📲 Click</button>
+
+              <button class="brand-pill" data-brand="uzum">🍇 Uzum Bank</button>
+
+              <button class="brand-pill" data-brand="nbu">🏛️ NBU Bank</button>
+
+              <button class="brand-pill" data-brand="anorbank">🍎 Anorbank</button>
+
+              <button class="brand-pill" data-brand="hamkorbank">🏦 Hamkorbank</button>
+
+              <button class="brand-pill" data-brand="soliq">📑 Soliq.uz</button>
+
+              <button class="brand-pill" data-brand="mygov">🇺🇿 MyGov</button>
+
+              <button class="brand-pill" data-brand="kunuz">📰 Kun.uz</button>
+
+              <button class="brand-pill" data-brand="ipakyuli">💎 Ipak Yo'li</button>
+
+            </div>
+
+
+
+            <!-- Custom Domain Search -->
+
+            <form id="brand-custom-form" class="brand-custom-search" autocomplete="off">
+
+              <span class="search-icon">🔍</span>
+
+              <input type="text" id="brand-custom-input" placeholder="Yoki o'z domeningizni kiriting (masalan: agrobank.uz)" data-i18n-placeholder="custom_brand_placeholder" />
+
+              <button type="submit" class="primary-btn btn-sm" id="brand-search-btn">
+
+                <span data-i18n="scan_brand_btn">KLONLARNI QIDIRISH</span>
+
+              </button>
+
+            </form>
+
+          </div>
+
+
+
+          <!-- RADAR SUMMARY STATS -->
+
+          <div class="brand-stats-row">
+
+            <div class="brand-stat-card">
+
+              <div class="brand-stat-val" id="radar-total-clones">25</div>
+
+              <div class="brand-stat-lbl" data-i18n="stat_clones_analyzed">Generatsiya Qilingan Klonlar</div>
+
+            </div>
+
+            <div class="brand-stat-card card-critical">
+
+              <div class="brand-stat-val text-critical" id="radar-critical-clones">9</div>
+
+              <div class="brand-stat-lbl" data-i18n="stat_critical_clones">Kritik Xavfli (Omoglif/Punycode)</div>
+
+            </div>
+
+            <div class="brand-stat-card card-high">
+
+              <div class="brand-stat-val text-warn" id="radar-high-clones">11</div>
+
+              <div class="brand-stat-lbl" data-i18n="stat_high_clones">Yuqori Xavfli Klonlar</div>
+
+            </div>
+
+            <div class="brand-stat-card">
+
+              <div class="brand-stat-val text-emerald" id="radar-official-domain">payme.uz</div>
+
+              <div class="brand-stat-lbl" data-i18n="stat_official_domain">Rasmiy Xavfsiz Domen</div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- RADAR TABLE PANEL -->
+
+          <div class="chart-panel brand-table-panel">
+
+            <div class="table-toolbar">
+
+              <h3 data-i18n="brand_table_title">Aniqlangan Klon Domenlar va Xavf Bahosi</h3>
+
+              <div class="table-filter-pills" id="brand-filter-pills">
+
+                <button class="filter-pill active" data-filter="all" data-i18n="filter_all">Barchasi</button>
+
+                <button class="filter-pill" data-filter="CRITICAL" data-i18n="filter_critical">🔴 Faqat Kritik</button>
+
+                <button class="filter-pill" data-filter="HIGH" data-i18n="filter_high">🟠 Yuqori Xavf</button>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="table-responsive">
+
+              <table class="brand-radar-table">
+
+                <thead>
+
+                  <tr>
+
+                    <th data-i18n="th_clone_domain">Ehtimoliy Klon Domen</th>
+
+                    <th data-i18n="th_mutation_type">Mutatsiya Turi</th>
+
+                    <th data-i18n="th_risk_score">Xavf Skori</th>
+
+                    <th data-i18n="th_description">Tahliliy Xulosa</th>
+
+                    <th data-i18n="th_recommended">Tavsiya</th>
+
+                    <th data-i18n="th_action">Amal</th>
+
+                  </tr>
+
+                </thead>
+
+                <tbody id="brand-radar-tbody">
+
+                  <!-- Populated by JS -->
+
+                </tbody>
+
+              </table>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ============ CYBER LAB (PHISHING SIMULATION & TRAINING 2.0) ============ -->
+        <section class="view" id="view-cyber-lab" data-view-panel hidden>
+          <div class="view-header-row">
+            <div>
+              <p class="view-eyebrow" data-i18n="cyber_lab_eyebrow">INTERAKTIV KIBER-TRENING 2.0</p>
+              <h1 class="view-heading" data-i18n="cyber_lab_heading">Kiber-Poligon: Kengaytirilgan Fishing Simulyatori</h1>
+              <p class="view-subhead" data-i18n="cyber_lab_subhead">
+                O'zbekiston kiber-makonidagi 14 ta murakkab real hujum senariylari (Omogliflar, Subdomen aldovi, Evilginx AiTM, Makrosli Excel, Ochiq Qayta Yo'naltirish va Quishing).
+              </p>
+            </div>
+            <div class="lab-score-hud">
+              <div class="hud-item">
+                <span class="hud-label" data-i18n="hud_rank">KIBER-LITSENZIYA:</span>
+                <span class="hud-val text-accent" id="lab-rank">SOC STAJYOR 🔰</span>
+              </div>
+              <div class="hud-item">
+                <span class="hud-label" data-i18n="hud_score">TO'PLANGAN BALL:</span>
+                <span class="hud-val text-cyan font-mono" id="lab-score">0 / 1400</span>
+              </div>
+              <div class="hud-item">
+                <span class="hud-label" data-i18n="hud_streak">MUVOFAQQIYAT:</span>
+                <span class="hud-val text-emerald font-mono" id="lab-solved">0 / 14</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DIFFICULTY FILTERS -->
+          <div class="lab-filter-row">
+            <span class="lab-scenarios-label" data-i18n="filter_diff_label">QIYINLIK DARAJASI:</span>
+            <div class="lab-filter-pills" id="lab-diff-filter-pills">
+              <button class="filter-pill active" data-diff="all" data-i18n="diff_all">Barchasi (14)</button>
+              <button class="filter-pill" data-diff="easy" data-i18n="diff_easy">🟢 Oson (4)</button>
+              <button class="filter-pill" data-diff="medium" data-i18n="diff_medium">🟡 O'rta (5)</button>
+              <button class="filter-pill" data-diff="hard" data-i18n="diff_hard">🔴 Qiyin / Ekstremal (5)</button>
+            </div>
+          </div>
+
+          <!-- SCENARIO SELECTOR CAROUSEL -->
+          <div class="lab-scenarios-bar">
+            <div class="lab-scenario-pills" id="lab-scenario-pills">
+              <!-- Dynamically populated by CyberLabManager -->
+            </div>
+          </div>
+
+          <!-- MOCK MESSAGE CONTAINER -->
+          <div class="lab-workspace">
+            <div class="mock-client-window">
+              <div class="mock-window-header">
+                <div class="mock-window-dots">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="mock-client-title" id="lab-client-title">📨 Xavfsiz Xabarlar Klienti (Inbox)</div>
+                <div class="mock-client-right">
+                  <span class="mock-diff-badge" id="lab-diff-badge">🟢 Oson</span>
+                  <span class="mock-client-tag" id="lab-client-tag">INCOMING TELEMETRY</span>
+                </div>
+              </div>
+
+              <div class="mock-message-body">
+                <div class="mock-meta-row">
+                  <div class="meta-field">
+                    <span class="meta-label">Kimdan (From):</span>
+                    <span class="meta-val font-mono" id="lab-msg-from">support@payme-secure.click</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Mavzu (Subject):</span>
+                    <span class="meta-val font-bold" id="lab-msg-subject">Diqqat! 450,000 so'm to'lovingiz to'xtatildi</span>
+                  </div>
+                </div>
+
+                <div class="mock-letter-content" id="lab-msg-body">
+                  <!-- Injected by script -->
+                </div>
+
+                <!-- DEEP INSPECTION TOOLBAR -->
+                <div class="mock-inspect-bar">
+                  <div class="inspect-actions">
+                    <button type="button" class="inspect-link-btn" id="lab-inspect-btn">
+                      <span>🔍 PhishGuard AI Skanerlash</span>
+                    </button>
+                    <button type="button" class="inspect-headers-btn" id="lab-headers-btn">
+                      <span>📨 RFC Sarlavhalar (SPF/DKIM)</span>
+                    </button>
+                    <button type="button" class="inspect-hint-btn" id="lab-hint-btn">
+                      <span>💡 Maslahat (-25 ball)</span>
+                    </button>
+                  </div>
+                  <span class="inspect-result-badge" id="lab-inspect-badge" hidden></span>
+                </div>
+
+                <!-- EMAIL RFC HEADERS PANEL -->
+                <div class="mock-headers-box" id="lab-headers-box" hidden>
+                  <pre class="mock-headers-content" id="lab-headers-content"></pre>
+                </div>
+
+                <!-- HINT PANEL -->
+                <div class="mock-hint-box" id="lab-hint-box" hidden>
+                  <div class="mock-hint-text" id="lab-hint-text"></div>
+                </div>
+              </div>
+
+              <!-- DECISION ACTION BAR -->
+              <div class="lab-decision-bar">
+                <button type="button" class="btn-decision btn-threat" id="lab-btn-threat">
+                  <span class="decision-icon">🚨</span>
+                  <div class="decision-text">
+                    <strong>BU FISHING TAHDIDI!</strong>
+                    <small>Firibgarlik, troyan yoki soxta klon havola</small>
+                  </div>
+                </button>
+                <button type="button" class="btn-decision btn-safe" id="lab-btn-safe">
+                  <span class="decision-icon">✅</span>
+                  <div class="decision-text">
+                    <strong>BU XAVFSIZ VA ISHONCHLI</strong>
+                    <small>Rasmiy tashkilotning haqiqiy xabari</small>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- FEEDBACK EXPLANATION PANEL -->
+            <div class="lab-feedback-panel" id="lab-feedback-panel" hidden>
+              <div class="feedback-header" id="lab-feedback-header">
+                <!-- Injected by script -->
+              </div>
+              <div class="feedback-body" id="lab-feedback-body">
+                <!-- Injected by script -->
+              </div>
+              <button type="button" class="primary-btn btn-sm" id="lab-btn-next">
+                <span>Keyingi Senariyga O'tish &#8594;</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ RASMIY SOC EKSPERTIZA HISOBOTI MODALI ============ -->
+
+        <div class="modal-backdrop" id="soc-report-modal" hidden>
+
+          <div class="modal-window">
+
+            <div class="modal-toolbar no-print">
+
+              <div class="modal-title-row">
+
+                <span class="modal-badge">📄 RASMIY SOC EKSPERTIZA XULOSASI</span>
+
+                <span class="modal-doc-id" id="report-doc-id">DOSSIER #PG-SOC-2026-X948</span>
+
+              </div>
+
+              <div class="modal-btn-row">
+
+                <button id="modal-print-btn" class="primary-btn"><span data-i18n="print_save_pdf">🖨️ CHOP ETISH / PDF
+
+                    SAQLASH</span></button>
+
+                <button id="modal-close-btn" class="ghost-btn">✕ <span data-i18n="close">YOPISH</span></button>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- PRINTABLE OFFICIAL DOSSIER -->
+
+            <div class="soc-dossier" id="soc-report-dossier">
+
+              <!-- HEADER -->
+
+              <div class="dossier-header">
+
+                <div class="dossier-emblem">🛡️</div>
+
+                <div class="dossier-header-text">
+
+                  <h2 data-i18n="soc_rep_header_title">O'ZBEKISTON RESPUBLIKASI KIBERXAVFSIZLIK VA SOC MARKAZI</h2>
+
+                  <h3 data-i18n="soc_rep_modal_title">PHISHGUARD AI FORENSIC THREAT ASSESSMENT DOSSIER</h3>
+
+                  <p class="dossier-sub" data-i18n="soc_rep_modal_sub">Sun'iy intellekt va ko'p bosqichli tahdid
+
+                    razvedkasi bo'yicha rasmiy ekspertiza xulosasi</p>
+
+                </div>
+
+                <div class="dossier-stamp-seal">
+
+                  <div class="seal-inner">
+
+                    <span data-i18n="soc_seal_verified">SOC VERIFIED</span>
+
+                    <span class="seal-code">TLP:AMBER</span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="dossier-meta-bar">
+
+                <div><strong data-i18n="soc_doc_no">Hujjat raqami:</strong> <span id="rep-doc-no">PG-SOC-2026-X01</span>
+
+                </div>
+
+                <div><strong data-i18n="soc_timestamp">Sana va vaqt:</strong> <span id="rep-timestamp">2026-10-28
+
+                    15:30:00 UTC+5</span></div>
+
+                <div><strong data-i18n="soc_status">Holat:</strong> <span class="dossier-status-pill"
+
+                    id="rep-status-pill" data-i18n="soc_status_verified">TEKSHIRILGAN</span></div>
+
+              </div>
+
+
+
+              <!-- SECTION 1: TARGET IDENTIFICATION -->
+
+              <div class="dossier-section">
+
+                <h4 class="dossier-sec-title" data-i18n="soc_sec1_title">1. TEKSHIRILGAN OB'EKT VA IDENTIFIKATORLAR</h4>
+
+                <table class="dossier-table">
+
+                  <tr>
+
+                    <td class="dossier-lbl" data-i18n="soc_target_type">Ob'ekt turi:</td>
+
+                    <td id="rep-target-type" class="dossier-val font-bold">URL / Web Resource</td>
+
+                    <td class="dossier-lbl" data-i18n="soc_engine_type">Tahlil mexanizmi:</td>
+
+                    <td id="rep-engine-type" class="dossier-val">Heuristics + ML + Threat Intel</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td class="dossier-lbl" data-i18n="soc_target_name">Manzil / Fayl:</td>
+
+                    <td colspan="3" id="rep-target-name" class="dossier-val font-mono">https://example.com</td>
+
+                  </tr>
+
+                  <tr id="rep-hashes-row">
+
+                    <td class="dossier-lbl" data-i18n="soc_hashes">Kripto xeshlar:</td>
+
+                    <td colspan="3" id="rep-hashes-val" class="dossier-val font-mono">SHA-256:
+
+                      e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</td>
+
+                  </tr>
+
+                </table>
+
+              </div>
+
+
+
+              <!-- SECTION 2: VERDICT & RISK METRICS -->
+
+              <div class="dossier-section">
+
+                <h4 class="dossier-sec-title" data-i18n="soc_sec2_title">2. XAVF REYTINGI VA YAKUNIY TASNIF</h4>
+
+                <div class="dossier-verdict-grid">
+
+                  <div class="dossier-verdict-box" id="rep-verdict-box">
+
+                    <div class="dossier-score-num" id="rep-score-num">85%</div>
+
+                    <div class="dossier-level-badge" id="rep-level-badge">KRITIK XAVF</div>
+
+                    <div class="dossier-classification-text" id="rep-class-text">Potensial Zararli / Malicious</div>
+
+                  </div>
+
+                  <div class="dossier-verdict-details">
+
+                    <p><strong><span data-i18n="soc_consensus_lbl">Ko'p pog'onali konsensus bahosi:</span></strong>
+
+                      <span id="rep-consensus-note">Lokal AI modeli va mustaqil antivirus dvijoklari ma'lumotlari
+
+                        umumlashtirildi.</span></p>
+
+                    <p><strong><span data-i18n="soc_zeroday_lbl">Zero-Day mudofaa holati:</span></strong> <span
+
+                        id="rep-zeroday-note">Lokal evristik tekshiruv xulosasi tashqi bazalarga nisbatan ustuvor deb
+
+                        topildi.</span></p>
+
+                    <p><strong><span data-i18n="soc_vt_lbl">VirusTotal xulosasi:</span></strong> <span
+
+                        id="rep-vt-summary">0 ta dvijok xavf aniqladi.</span></p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- SECTION 3: MITRE ATT&CK MAPPINGS -->
+
+              <div class="dossier-section">
+
+                <h4 class="dossier-sec-title" data-i18n="soc_sec3_title">3. XALQARO MITRE ATT&CK TAHDIDLAR MATRITSASI
+
+                </h4>
+
+                <table class="dossier-table" id="rep-mitre-table">
+
+                  <thead>
+
+                    <tr>
+
+                      <th data-i18n="soc_th_tech_id">Texnika ID</th>
+
+                      <th data-i18n="soc_th_tactic">Taktika yo'nalishi</th>
+
+                      <th data-i18n="soc_th_desc">Hujum mexanizmi tavsifi</th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody id="rep-mitre-tbody">
+
+                    <!-- populated by JS -->
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+
+
+              <!-- SECTION 4: EXPLAINABLE AI ATTRIBUTION -->
+
+              <div class="dossier-section">
+
+                <h4 class="dossier-sec-title" data-i18n="soc_sec4_title">4. SUN'IY INTELLEKT QAROR TAHLILI (EXPLAINABLE
+
+                  AI - FEATURE ATTRIBUTION)</h4>
+
+                <p class="dossier-note-text" data-i18n="soc_xai_sub">Neyron tarmoq va tasniflagichlar qaroriga eng ko'p
+
+                  ta'sir ko'rsatgan asosiy omillar:</p>
+
+                <table class="dossier-table" id="rep-xai-table">
+
+                  <thead>
+
+                    <tr>
+
+                      <th data-i18n="soc_th_feature">Belgi / Omillar</th>
+
+                      <th data-i18n="soc_th_direction">Yo'nalish</th>
+
+                      <th data-i18n="soc_th_impact">Hissa (Impact)</th>
+
+                      <th data-i18n="soc_th_expert_note">Ekspert izohi</th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody id="rep-xai-tbody">
+
+                    <!-- populated by JS -->
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+
+
+              <!-- SECTION 5: FORENSIC INDICATORS OF COMPROMISE -->
+
+              <div class="dossier-section">
+
+                <h4 class="dossier-sec-title" data-i18n="soc_sec5_title">5. ANIQLANGAN TAHID INDIKATORLARI (INDICATORS
+
+                  OF COMPROMISE)</h4>
+
+                <ul class="dossier-list" id="rep-indicators-list">
+
+                  <!-- populated by JS -->
+
+                </ul>
+
+              </div>
+
+
+
+              <!-- SECTION 6: MANDATORY ACTION RECOMMENDATIONS -->
+
+              <div class="dossier-section">
+
+                <h4 class="dossier-sec-title" data-i18n="soc_sec6_title">6. XAVFSIZLIK MUTAXASSISI TAVSIYALARI VA QAT'IY
+
+                  KO'RSATMALAR</h4>
+
+                <div class="dossier-recommendations-box" id="rep-rec-box">
+
+                  <ul id="rep-rec-list">
+
+                    <li>Ushbu havola yoki fayldan foydalanish qat'iyan man etiladi!</li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- SECTION 7: AUTHENTICATION SEAL & DIGITAL SIGNATURE -->
+
+              <div class="dossier-footer">
+
+                <div class="dossier-qr-col">
+
+                  <div class="dossier-qr-box">
+
+                    <div class="qr-mock">
+
+                      <span class="qr-code-text">VALIDATED<br>PHISHGUARD<br>SOC-CERT</span>
+
+                    </div>
+
+                    <span class="qr-caption" data-i18n="soc_qr_caption">Raqamli tekshiruv kodi</span>
+
+                  </div>
+
+                </div>
+
+                <div class="dossier-signature-col">
+
+                  <div class="sig-line"></div>
+
+                  <p class="sig-name" data-i18n="soc_sig_role">SOC Kiberxavfsizlik Mutaxassisi</p>
+
+                  <p class="sig-title" data-i18n="soc_sig_team">Avtomatlashtirilgan Kiber-Ekspertiza Guruhi</p>
+
+                  <p class="sig-org">PhishGuard AI — Forensic Defense Protocol</p>
+
+                </div>
+
+                <div class="dossier-stamp-col">
+
+                  <div class="official-stamp">
+
+                    <div class="stamp-border">
+
+                      <p data-i18n="soc_stamp_country">O'ZBEKISTON RESPUBLIKASI</p>
+
+                      <p><strong data-i18n="soc_stamp_dept">* KIBERXAVFSIZLIK *</strong></p>
+
+                      <p>PHISHGUARD AI</p>
+
+                      <p class="stamp-date" id="rep-stamp-date">2026.10.28</p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ============ YARA RULE GENERATOR MODAL ============ -->
+
+        <div class="modal-backdrop" id="yara-modal" hidden>
+
+          <div class="modal-window yara-modal-window">
+
+            <div class="modal-toolbar">
+
+              <div class="modal-title-row">
+
+                <span class="modal-badge yara-badge">🎯 YARA 4.x THREAT HUNTING RULE</span>
+
+                <span class="modal-doc-id" id="yara-modal-rule-name">PhishGuard_Rule</span>
+
+              </div>
+
+              <div class="modal-btn-row">
+
+                <button id="yara-copy-btn" class="secondary-btn"><span data-i18n="copy_code">📋 NUSXA OLISH</span></button>
+
+                <button id="yara-download-btn" class="primary-btn"><span data-i18n="download_yar">💾 .YAR YUKLASH</span></button>
+
+                <button id="yara-close-btn" class="ghost-btn">✕</button>
+
+              </div>
+
+            </div>
+
+            <div class="yara-editor-body">
+
+              <pre class="yara-code" id="yara-code-display"></pre>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="world_geo.js"></script>
+
+        <script src="uzbekistan_geo.js"></script>
+
+        <script src="script.js?v=11.0"></script>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,16 @@
+# Секреты - НИКОГДА не должны попадать внутрь образа
+backend/.env
+
+# Уже сгенерированные артефакты - подключаются как volume в docker-compose,
+# копировать их в образ не нужно (и models/*.pkl может быть очень большим)
+models/*.pkl
+data/*.db
+reports/*.csv
+
+# Мусор разработки
+**/__pycache__/
+**/*.pyc
+.git/
+.gitignore
+*.md
+dataset/raw_urls.csv

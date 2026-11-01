@@ -1,0 +1,16 @@
+# Netlify configuration for PhishGuard AI Frontend
+[build]
+  publish = "."
+
+# API Proxy to Python FastAPI Backend (e.g. on Render, Railway, or VPS)
+[[redirects]]
+  from = "/api/*"
+  to = "https://phishguard-api.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+# SPA Fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

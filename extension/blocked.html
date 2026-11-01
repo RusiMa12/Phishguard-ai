@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishGuard Shield — Xavfli Sahifa Bloklandi</title>
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: rgba(18, 22, 34, 0.9);
+      --red: #ef4444;
+      --red-glow: rgba(239, 68, 68, 0.35);
+      --border: rgba(239, 68, 68, 0.3);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 50% 20%, #1e1015 0%, var(--bg) 70%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .shield-container {
+      max-width: 680px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 0 50px var(--red-glow);
+      backdrop-filter: blur(16px);
+      text-align: center;
+      animation: pulseAlert 3s infinite alternate;
+    }
+    @keyframes pulseAlert {
+      0% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.2); }
+      100% { box-shadow: 0 0 60px rgba(239, 68, 68, 0.45); }
+    }
+    .icon-badge {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 2px solid var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .danger-box {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px dashed rgba(239, 68, 68, 0.4);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: left;
+      margin-bottom: 28px;
+    }
+    .target-url {
+      font-family: monospace;
+      font-size: 13px;
+      color: #fca5a5;
+      word-break: break-all;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .reasons-list {
+      list-style: none;
+      font-size: 13px;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    .reasons-list li::before {
+      content: "⚠️ ";
+    }
+    .actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-safe {
+      background: #10b981;
+      color: #022c22;
+    }
+    .btn-safe:hover {
+      background: #34d399;
+      transform: translateY(-2px);
+    }
+    .btn-bypass {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .btn-bypass:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+    }
+    .footer-note {
+      margin-top: 24px;
+      font-size: 11px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="shield-container">
+    <div class="icon-badge">🛡️</div>
+    <h1>DIQQAT: Xavfli Fishing Sahifasi Bloklandi!</h1>
+    <p class="subtitle">
+      PhishGuard AI xavfsizlik moduli ushbu veb-sahifada bank kartasi ma'lumotlarini o'g'irlash yoki soxta brend orqali aldov alomatlarini aniqladi.
+    </p>
+
+    <div class="danger-box">
+      <div class="target-url" id="blocked-url">Manzil yuklanmoqda...</div>
+      <ul class="reasons-list" id="reasons-list">
+        <li>Sun'iy intellekt xavf darajasini o'ta yuqori deb baholadi</li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-safe" id="btn-back">⬅️ Xavfsiz Sahifaga Qaytish (Tavsiya etiladi)</button>
+      <button class="btn btn-bypass" id="btn-proceed">Tavakkal qilib davom etish (Xavfli)</button>
+    </div>
+
+    <div class="footer-note">
+      Himoyachi: PhishGuard AI SOC Protection Suite | Bitiruv Malakaviy Ishi
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const targetUrl = params.get("url") || "Noma'lum manzil";
+    const reasonsRaw = params.get("reasons");
+    const brand = params.get("brand");
+
+    document.getElementById("blocked-url").textContent = targetUrl;
+
+    const listEl = document.getElementById("reasons-list");
+    listEl.innerHTML = "";
+
+    if (brand) {
+      const li = document.createElement("li");
+      li.textContent = `Brend soxtalashtirilgan: Ushbu sayt '${brand.toUpperCase()}' rasmiy portali emas!`;
+      listEl.appendChild(li);
+    }
+
+    if (reasonsRaw) {
+      try {
+        const reasons = JSON.parse(reasonsRaw);
+        reasons.slice(0, 3).forEach(r => {
+          const li = document.createElement("li");
+          li.textContent = r;
+          listEl.appendChild(li);
+        });
+      } catch (e) {}
+    }
+
+    if (listEl.children.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "Zararli scriptlar yoki soxta avtorizatsiya formasi aniqlangan.";
+      listEl.appendChild(li);
+    }
+
+    document.getElementById("btn-back").addEventListener("click", () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = "https://www.google.com";
+      }
+    });
+
+    document.getElementById("btn-proceed").addEventListener("click", () => {
+      chrome.runtime.sendMessage({ action: "allow_bypass", url: targetUrl }, () => {
+        window.location.href = targetUrl;
+      });
+    });
+  </script>
+</body>
+</html>

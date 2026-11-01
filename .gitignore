@@ -1,0 +1,66 @@
+# ============================================================
+# PhishGuard AI — Git Ignore Policy
+# ============================================================
+
+# Secrets & Environment variables
+.env
+.env.*
+!.env.example
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Database & SQLite files
+data/*.db
+data/*.db-wal
+data/*.db-shm
+*.sqlite3
+
+# Reports & exports
+reports/*.pdf
+reports/*.json
+reports/*.csv
+
+# Temporary files & zips
+*.zip
+*.tmp
+*.log
+deploy_*.ps1
+check_*.ps1
+rename_*.ps1
+
+# Netlify & IDE state
+.netlify/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large models / datasets (if exceeding GitHub 100MB limits)
+dataset/exe_samples/
