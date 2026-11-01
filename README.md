@@ -117,7 +117,7 @@ URL modelini o'rgatish uchun 133 090 ta muvozanatli (balanced) namunadan iborat 
 
 ```bash
 # 1. Ombor nusxasini oling (Clone)
-git clone https://github.com/your-username/Phishguard-ai.git
+git clone https://github.com/RusiMa12/Phishguard-ai.git
 cd Phishguard-ai/backend
 
 # 2. Virtual muhitni yoqing
